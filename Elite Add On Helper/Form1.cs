@@ -93,7 +93,18 @@ namespace Elite_Add_On_Helper
         {
             tb_edmc.Text = folderpath();
         }
+        private void btn_warthogscriptpath_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Title = "Select A File";
+            openDialog.Filter = "Thrustmaster Files (*.tmc)|*.tmc";
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                string file = openDialog.FileName;
+                tb_warthogscriptpath.Text = file;
+            }
 
+        }
         private void btn_voiceattack_path_Click(object sender, EventArgs e)
         {
             tb_voiceattack.Text = folderpath();
@@ -113,10 +124,6 @@ namespace Elite_Add_On_Helper
         {
             tb_warthog.Text = folderpath();
         }
-
-      
-
- 
 
         private void btn_edlaunch_Click(object sender, EventArgs e)
         {
@@ -264,18 +271,7 @@ namespace Elite_Add_On_Helper
             //Console.ReadLine();
         }
 
-        private void btn_warthogscriptpath_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openDialog = new OpenFileDialog();
-            openDialog.Title = "Select A File";
-            openDialog.Filter = "Thrustmaster Files (*.tmc)|*.tmc";
-            if (openDialog.ShowDialog() == DialogResult.OK)
-            {
-                string file = openDialog.FileName;
-                tb_warthogscriptpath.Text = file;
-            }
-            
-        }
+
     }
 }
 
