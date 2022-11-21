@@ -130,6 +130,7 @@ namespace Elite_Add_On_Helper
             tb_edlaunch_path.Text = folderpath();
         }
 
+        // launch the apps!
         private void button1_Click(object sender, EventArgs e)
         {
             string procname;
@@ -146,6 +147,9 @@ namespace Elite_Add_On_Helper
                     if (File.Exists(procname))
                     {
                         //woohoo! lets launch it
+                        toolStripStatusLabel1.Text = "Launching EdDiscovery..";
+                        statusStrip1.Invalidate();
+                        statusStrip1.Refresh();
                         Process.Start(procname);
                     }
                 }
@@ -161,6 +165,9 @@ namespace Elite_Add_On_Helper
                     if (File.Exists(procname))
                     {
                         //woohoo! lets launch it
+                        toolStripStatusLabel1.Text = "Launching EdEngineer..";
+                        statusStrip1.Invalidate();
+                        statusStrip1.Refresh();
                         Process.Start(procname);
                     }
                 }
@@ -176,6 +183,9 @@ namespace Elite_Add_On_Helper
                     if (File.Exists(procname))
                     {
                         //woohoo! lets launch it
+                        toolStripStatusLabel1.Text = "Launching EDMC..";
+                        statusStrip1.Invalidate();
+                        statusStrip1.Refresh();
                         Process.Start(procname);
                     }
                 }
@@ -191,6 +201,9 @@ namespace Elite_Add_On_Helper
                     if (File.Exists(procname))
                     {
                         //woohoo! lets launch it
+                        toolStripStatusLabel1.Text = "Launching Elite Mats Helper..";
+                        statusStrip1.Invalidate();
+                        statusStrip1.Refresh();
                         Process.Start(procname);
                     }
                 }
@@ -205,6 +218,9 @@ namespace Elite_Add_On_Helper
                     // does the file exist?
                     if (File.Exists(procname))
                     {
+                        toolStripStatusLabel1.Text = "Launching Voice Attack..";
+                        statusStrip1.Invalidate();
+                        statusStrip1.Refresh();
                         //woohoo! lets launch it
                         Process.Start(procname);
                     }
@@ -228,6 +244,9 @@ namespace Elite_Add_On_Helper
                         TARGETGUI.StartInfo.Arguments = targargs;
                         statusStrip1.Text = targargs;
                         Application.DoEvents();
+                        toolStripStatusLabel1.Text = "Launching Target..";
+                        statusStrip1.Invalidate();
+                        statusStrip1.Refresh();
                         TARGETGUI.Start();
 
                         //woohoo! lets launch it
