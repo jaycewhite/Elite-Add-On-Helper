@@ -203,7 +203,7 @@ namespace Elite_Add_On_Helper
                     }
                 }
             }
-            //warthog  ***************  NOT WORKING ****************
+            //warthog  ***************  WORKING ****************
             if (cb_warthog.Checked == true)
             {
                 
@@ -226,6 +226,37 @@ namespace Elite_Add_On_Helper
                         //woohoo! lets launch it
                         //Process.Start(procname);
                     }
+                }
+            }
+            //elite launcer
+            if (cb_edlaunch.Checked == true)
+            {
+                // does the folder exist?
+                if (Directory.Exists(tb_edlaunch_path.Text))
+                {
+                    procname =  tb_edlaunch_path.Text  + "/EDLaunch.exe";
+                    // does the file exist?
+                    if (File.Exists(procname))
+                    {
+                        toolStripStatusLabel1.Text = "Launching Elite..";
+                        statusStrip1.Invalidate();
+                        statusStrip1.Refresh();
+                        //woohoo! lets launch it
+                        Process.Start(procname);
+                    }
+                    else
+                    {
+                        toolStripStatusLabel1.Text = "Elite exe not found!" + procname;
+                        statusStrip1.Invalidate();
+                        statusStrip1.Refresh();
+                    }
+                }
+                else
+                {
+                    toolStripStatusLabel1.Text = "Elite path not found!" + tb_edlaunch_path.Text;
+                    statusStrip1.Text = "Elite not found!";
+                    statusStrip1.Invalidate();
+                    statusStrip1.Refresh();
                 }
             }
             // for ref how to open a webpage in default browser
