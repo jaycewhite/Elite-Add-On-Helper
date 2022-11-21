@@ -172,14 +172,14 @@ namespace Elite_Add_On_Helper
             // savePrefsToolStripMenuItem
             // 
             this.savePrefsToolStripMenuItem.Name = "savePrefsToolStripMenuItem";
-            this.savePrefsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.savePrefsToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.savePrefsToolStripMenuItem.Text = "Save Prefs";
             this.savePrefsToolStripMenuItem.Click += new System.EventHandler(this.savePrefsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -429,6 +429,7 @@ namespace Elite_Add_On_Helper
             this.btn_autodetect.TabIndex = 36;
             this.btn_autodetect.Text = "Autodetect Paths..";
             this.btn_autodetect.UseVisualStyleBackColor = true;
+            this.btn_autodetect.Click += new System.EventHandler(this.btn_autodetect_Click);
             // 
             // Form1
             // 
