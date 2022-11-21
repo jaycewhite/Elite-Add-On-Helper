@@ -11,10 +11,10 @@ using System.Xml.Linq;
 
 namespace Elite_Add_On_Helper
 {
-    
+
     public partial class Form1 : Form
     {
-        
+
 
         public Form1()
         {
@@ -44,37 +44,33 @@ namespace Elite_Add_On_Helper
             cb_warthogscriptdir.Checked = (bool)Properties.Settings.Default["warthogscriptdir_cb"];
         }
 
-        
+
 
         // My Functions
         private void updatestatus(string status)
         {
             // function to update the status bar
             toolStripStatusLabel1.Text = status;
-                        statusStrip1.Invalidate();
-                        statusStrip1.Refresh();
+            statusStrip1.Invalidate();
+            statusStrip1.Refresh();
         }
-        private string folderpath()
+        private string Folderpath()
         {
             FolderBrowserDialog diag = new FolderBrowserDialog();
             // set the root folder or it defaults to desktop
             diag.RootFolder = Environment.SpecialFolder.MyComputer;
-           
-
             if (diag.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-
             {
                 return diag.SelectedPath;
             }
             else { return null; }
         }
-
         // form actions
         // menu actions
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
-                {
-                    this.Close();
-                }
+        {
+            this.Close();
+        }
         private void savePrefsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default["edengineer_path"] = tb_edengineer.Text;
@@ -96,22 +92,24 @@ namespace Elite_Add_On_Helper
             Properties.Settings.Default.Save(); // Saves settings in application configuration file
         }
         // button actions
-        private void btn_edengineer_path_Click(object sender, EventArgs e)
+        private void Btn_edengineer_path_Click(object sender, EventArgs e)
         {
-            string mypath = folderpath();
-            if(mypath != null) { 
+            string mypath = Folderpath();
+            if (mypath != null)
+            {
                 tb_edengineer.Text = mypath;
             }
 
         }
-        private void btn_edmc_path_Click(object sender, EventArgs e)
+        private void Btn_edmc_path_Click(object sender, EventArgs e)
         {
-            string mypath = folderpath();
-            if(mypath != null) { 
+            string mypath = Folderpath();
+            if (mypath != null)
+            {
                 tb_edmc.Text = mypath;
-             }
+            }
         }
-        private void btn_warthogscriptpath_Click(object sender, EventArgs e)
+        private void Btn_warthogscriptpath_Click(object sender, EventArgs e)
         {
             OpenFileDialog openDialog = new OpenFileDialog();
             openDialog.Title = "Select A File";
@@ -123,50 +121,55 @@ namespace Elite_Add_On_Helper
             }
 
         }
-        private void btn_voiceattack_path_Click(object sender, EventArgs e)
+        private void Btn_voiceattack_path_Click(object sender, EventArgs e)
         {
-            string mypath = folderpath();
-                if(mypath != null) { 
+            string mypath = Folderpath();
+            if (mypath != null)
+            {
                 tb_voiceattack.Text = mypath;
             }
         }
-        private void btn_eddiscovery_path_Click(object sender, EventArgs e)
+        private void Btn_eddiscovery_path_Click(object sender, EventArgs e)
         {
-            string mypath = folderpath();
-                if(mypath != null) { 
+            string mypath = Folderpath();
+            if (mypath != null)
+            {
                 tb_eddisco.Text = mypath;
-             }
+            }
         }
-        private void btn_edomhl_path_Click(object sender, EventArgs e)
+        private void Btn_edomhl_path_Click(object sender, EventArgs e)
         {
-            string mypath = folderpath();
-                if(mypath != null) { 
+            string mypath = Folderpath();
+            if (mypath != null)
+            {
                 tb_edomhl.Text = mypath;
             }
         }
-        private void btn_warthog_path_Click(object sender, EventArgs e)
+        private void Btn_warthog_path_Click(object sender, EventArgs e)
         {
-             string mypath = folderpath();
-                if(mypath != null) { 
+            string mypath = Folderpath();
+            if (mypath != null)
+            {
                 tb_warthog.Text = mypath;
             }
         }
-        private void btn_edlaunch_Click(object sender, EventArgs e)
+        private void Btn_edlaunch_Click(object sender, EventArgs e)
         {
-            string mypath = folderpath();
-                if(mypath != null) { 
+            string mypath = Folderpath();
+            if (mypath != null)
+            {
                 tb_edlaunch_path.Text = mypath;
             }
         }
         // launch the apps!
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             string procname;
-            
+
             // ok lets launch some apps!
             //ed discovery
             if (cb_EDDiscovery.Checked == true)
-                {
+            {
                 // does the folder exist?
                 if (Directory.Exists(tb_eddisco.Text))
                 {
@@ -254,12 +257,12 @@ namespace Elite_Add_On_Helper
             //warthog  ***************  WORKING ****************
             if (cb_warthog.Checked == true)
             {
-                
+
                 // does the folder exist?
                 if (Directory.Exists(tb_warthog.Text))
                 {
                     procname = tb_warthog.Text + "/TARGETGUI.exe";
-                    
+
                     string targargs = " -r " + "\"" + tb_warthogscriptpath.Text + "\"";
                     // does the file exist?
                     if (File.Exists(procname))
@@ -359,7 +362,7 @@ namespace Elite_Add_On_Helper
             }
             else
             {
-               updatestatus("ED Discovery Not found");
+                updatestatus("ED Discovery Not found");
 
             }
             System.Threading.Thread.Sleep(2000);
