@@ -212,7 +212,7 @@ namespace Elite_Add_On_Helper
                 {
                     procname = tb_warthog.Text + "/TARGETGUI.exe";
                     scriptname = tb_warthog.Text + "/AD_ED_v5.0.0.tmc";
-                    string targargs = " -r " + tb_warthogscriptpath + scriptname;
+                    string targargs = " -r " + "\"" + tb_warthogscriptpath + "\"" + scriptname;
                     // does the file exist?
                     if (File.Exists(procname))
                     {
