@@ -323,7 +323,7 @@ namespace Elite_Add_On_Helper
             this.btn_install_edmc.TabIndex = 24;
             this.btn_install_edmc.Text = "Install?";
             this.btn_install_edmc.UseVisualStyleBackColor = true;
-            this.btn_install_edmc.Click += new System.EventHandler(this.btn_install_edmc_Click);
+            this.btn_install_edmc.Click += new System.EventHandler(this.Btn_install_edmc_Click);
             // 
             // btn_install_EDDiscovery
             // 
@@ -333,7 +333,7 @@ namespace Elite_Add_On_Helper
             this.btn_install_EDDiscovery.TabIndex = 26;
             this.btn_install_EDDiscovery.Text = "Install?";
             this.btn_install_EDDiscovery.UseVisualStyleBackColor = true;
-            this.btn_install_EDDiscovery.Click += new System.EventHandler(this.btn_install_EDDiscovery_Click);
+            this.btn_install_EDDiscovery.Click += new System.EventHandler(this.Btn_install_EDDiscovery_Click);
             // 
             // btn_install_edomhl
             // 
@@ -343,7 +343,7 @@ namespace Elite_Add_On_Helper
             this.btn_install_edomhl.TabIndex = 27;
             this.btn_install_edomhl.Text = "Install?";
             this.btn_install_edomhl.UseVisualStyleBackColor = true;
-            this.btn_install_edomhl.Click += new System.EventHandler(this.btn_install_edomhl_Click);
+            this.btn_install_edomhl.Click += new System.EventHandler(this.Btn_install_edomhl_Click);
             // 
             // cb_edlaunch
             // 

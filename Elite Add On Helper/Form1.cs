@@ -327,10 +327,11 @@ namespace Elite_Add_On_Helper
         //try to detect paths for the applications
         private void Btn_autodetect_Click(object sender, EventArgs e)
         {
+            string pathtocheck;
             Updatestatus("This may take a while.. Searching for EDMC");
             // lets check the default path
             // 
-            string pathtocheck = @"C:\Program Files (x86)\EDMarketConnector";
+            pathtocheck = @"C:\Program Files (x86)\EDMarketConnector";
             if (Directory.Exists(pathtocheck))
             {
                 // found it!
@@ -340,9 +341,27 @@ namespace Elite_Add_On_Helper
             else
             {
                 Updatestatus("EDMC Not found");
-
+                System.Threading.Thread.Sleep(2000);
             }
             System.Threading.Thread.Sleep(2000);
+            Updatestatus("This may take a while.. Searching for Ed Engineer");
+
+            pathtocheck = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +@"\Microsoft\Windows\Start Menu\Programs\Max";
+
+            if (Directory.Exists(pathtocheck))
+            {
+                // found it!
+                tb_edmc.Text = pathtocheck;
+                cb_EDMarketConnector.Checked = true;
+            }
+            else
+            {
+                Updatestatus("Ed Engineer Not found");
+                System.Threading.Thread.Sleep(2000);
+            }
+            System.Threading.Thread.Sleep(2000);
+
+
 
             Updatestatus("This may take a while.. Searching for Voice Attack");
 
@@ -381,7 +400,9 @@ namespace Elite_Add_On_Helper
 
             // lets check the default path
             // 
+
             pathtocheck = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Elite Dangerous Odyssey Materials Helper Launcher";
+
             if (Directory.Exists(pathtocheck))
             {
                 // found it!
@@ -436,21 +457,21 @@ namespace Elite_Add_On_Helper
             Updatestatus("Ready");
         }
 
-        private void btn_install_edmc_Click(object sender, EventArgs e)
+        private void Btn_install_edmc_Click(object sender, EventArgs e)
         {
             Updatestatus("Installing EDMC");
             DownloadFileAndExecute("https://github.com/EDCD/EDMarketConnector/releases/download/Release%2F5.5.0/EDMarketConnector_win_5.5.0.msi");
             Updatestatus("Ready");
         }
 
-        private void btn_install_EDDiscovery_Click(object sender, EventArgs e)
+        private void Btn_install_EDDiscovery_Click(object sender, EventArgs e)
         {
             Updatestatus("Installing ED Discovery");
             DownloadFileAndExecute("https://github.com/EDDiscovery/EDDiscovery/releases/download/Release_15.1.4/EDDiscovery-15.1.4.exe");
             Updatestatus("Ready");
         }
 
-        private void btn_install_edomhl_Click(object sender, EventArgs e)
+        private void Btn_install_edomhl_Click(object sender, EventArgs e)
         {
             Updatestatus("Installing ED Odyysesy Materials Helper");
             DownloadFileAndExecute("https://github.com/jixxed/ed-odyssey-materials-helper/releases/download/1.100/Elite.Dangerous.Odyssey.Materials.Helper-1.100.msi");
