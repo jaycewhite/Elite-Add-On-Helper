@@ -52,6 +52,7 @@ namespace Elite_Add_On_Helper
         // My Functions
         private void updatestatus(string status)
         {
+            // function to update the status bar
             toolStripStatusLabel1.Text = status;
                         statusStrip1.Invalidate();
                         statusStrip1.Refresh();
@@ -74,7 +75,10 @@ namespace Elite_Add_On_Helper
         // form actions
         private void btn_edengineer_path_Click(object sender, EventArgs e)
         {
-            tb_edengineer.Text = folderpath();
+                        string mypath = folderpath();
+            if(mypath != null) { 
+            tb_edengineer.Text = mypath;
+                }
 
         }
 
@@ -101,7 +105,10 @@ namespace Elite_Add_On_Helper
         
         private void btn_edmc_path_Click(object sender, EventArgs e)
         {
-            tb_edmc.Text = folderpath();
+            string mypath = folderpath();
+            if(mypath != null) { 
+                tb_edmc.Text = mypath;
+                }
         }
         private void btn_warthogscriptpath_Click(object sender, EventArgs e)
         {
@@ -117,27 +124,42 @@ namespace Elite_Add_On_Helper
         }
         private void btn_voiceattack_path_Click(object sender, EventArgs e)
         {
-            tb_voiceattack.Text = folderpath();
+                        string mypath = folderpath();
+            if(mypath != null) { 
+            tb_voiceattack.Text = mypath;
+                }
         }
 
         private void btn_eddiscovery_path_Click(object sender, EventArgs e)
         {
-            tb_eddisco.Text = folderpath();
+                        string mypath = folderpath();
+            if(mypath != null) { 
+            tb_eddisco.Text = mypath;
+                }
         }
 
         private void btn_edomhl_path_Click(object sender, EventArgs e)
         {
-            tb_edomhl.Text = folderpath();
+                        string mypath = folderpath();
+            if(mypath != null) { 
+            tb_edomhl.Text = mypath;
+                }
         }
 
         private void btn_warthog_path_Click(object sender, EventArgs e)
         {
-            tb_warthog.Text = folderpath();
+                        string mypath = folderpath();
+            if(mypath != null) { 
+            tb_warthog.Text = mypath;
+                }
         }
 
         private void btn_edlaunch_Click(object sender, EventArgs e)
         {
-            tb_edlaunch_path.Text = folderpath();
+                        string mypath = folderpath();
+            if(mypath != null) { 
+            tb_edlaunch_path.Text = mypath;
+                }
         }
 
         // launch the apps!
