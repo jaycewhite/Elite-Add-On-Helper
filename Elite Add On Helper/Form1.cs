@@ -1,7 +1,9 @@
 ﻿using Elite_Add_On_Helper.Properties;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -302,8 +304,34 @@ namespace Elite_Add_On_Helper
             //Process.Start("https://www.google.com/");
             //Console.ReadLine();
         }
+       
+        //try to detect paths for the applications
+        private void btn_autodetect_Click(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "This may take a while.. Searching for EDMC";
+            statusStrip1.Invalidate();
+            statusStrip1.Refresh();
+            // lets check the default path
+            // 
+            string pathtocheck = @"C:\Program Files (x86)\EDMarketConnector";
+            if (Directory.Exists(pathtocheck))
+            {
+                // found it!
+                tb_edmc.Text = pathtocheck;
+                cb_EDMarketConnector.Checked = true;
+            }
+            else
+            {
+                toolStripStatusLabel1.Text = "Not found";
+                statusStrip1.Invalidate();
+                statusStrip1.Refresh();
+            }
+            System.Threading.Thread.Sleep(2000);
+            toolStripStatusLabel1.Text = "Ready";
+            statusStrip1.Invalidate();
+            statusStrip1.Refresh();
 
-
+        }
     }
 }
 
