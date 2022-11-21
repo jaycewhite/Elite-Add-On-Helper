@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -61,6 +62,7 @@ namespace Elite_Add_On_Helper
             }
             else { return null; }
         }
+
         // form actions
         private void btn_edengineer_path_Click(object sender, EventArgs e)
         {
@@ -151,6 +153,7 @@ namespace Elite_Add_On_Helper
                         statusStrip1.Invalidate();
                         statusStrip1.Refresh();
                         Process.Start(procname);
+                        System.Threading.Thread.Sleep(2000);
                     }
                 }
             }
@@ -169,6 +172,7 @@ namespace Elite_Add_On_Helper
                         statusStrip1.Invalidate();
                         statusStrip1.Refresh();
                         Process.Start(procname);
+                        System.Threading.Thread.Sleep(2000);
                     }
                 }
             }
@@ -187,6 +191,7 @@ namespace Elite_Add_On_Helper
                         statusStrip1.Invalidate();
                         statusStrip1.Refresh();
                         Process.Start(procname);
+                        System.Threading.Thread.Sleep(2000);
                     }
                 }
             }
@@ -205,6 +210,7 @@ namespace Elite_Add_On_Helper
                         statusStrip1.Invalidate();
                         statusStrip1.Refresh();
                         Process.Start(procname);
+                        System.Threading.Thread.Sleep(2000);
                     }
                 }
             }
@@ -223,6 +229,7 @@ namespace Elite_Add_On_Helper
                         statusStrip1.Refresh();
                         //woohoo! lets launch it
                         Process.Start(procname);
+                        System.Threading.Thread.Sleep(2000);
                     }
                 }
             }
@@ -248,6 +255,7 @@ namespace Elite_Add_On_Helper
                         statusStrip1.Invalidate();
                         statusStrip1.Refresh();
                         TARGETGUI.Start();
+                        System.Threading.Thread.Sleep(2000);
 
                         //woohoo! lets launch it
                         //Process.Start(procname);
@@ -269,6 +277,7 @@ namespace Elite_Add_On_Helper
                         statusStrip1.Refresh();
                         //woohoo! lets launch it
                         Process.Start(procname);
+                        System.Threading.Thread.Sleep(2000);
                     }
                     else
                     {
@@ -280,11 +289,15 @@ namespace Elite_Add_On_Helper
                 else
                 {
                     toolStripStatusLabel1.Text = "Elite path not found!" + tb_edlaunch_path.Text;
-                    statusStrip1.Text = "Elite not found!";
+                    
                     statusStrip1.Invalidate();
                     statusStrip1.Refresh();
                 }
             }
+            System.Threading.Thread.Sleep(2000);
+            toolStripStatusLabel1.Text = "Ready";
+            statusStrip1.Invalidate();
+            statusStrip1.Refresh();
             // for ref how to open a webpage in default browser
             //Process.Start("https://www.google.com/");
             //Console.ReadLine();
