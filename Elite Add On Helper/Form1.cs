@@ -50,6 +50,12 @@ namespace Elite_Add_On_Helper
         }
 
         // My Functions
+        private void updatestatus(string status)
+        {
+            toolStripStatusLabel1.Text = status;
+                        statusStrip1.Invalidate();
+                        statusStrip1.Refresh();
+        }
         private string folderpath()
         {
             FolderBrowserDialog diag = new FolderBrowserDialog();
@@ -151,9 +157,7 @@ namespace Elite_Add_On_Helper
                     if (File.Exists(procname))
                     {
                         //woohoo! lets launch it
-                        toolStripStatusLabel1.Text = "Launching EdDiscovery..";
-                        statusStrip1.Invalidate();
-                        statusStrip1.Refresh();
+                        updatestatus("Launching EdDiscovery..");
                         Process.Start(procname);
                         System.Threading.Thread.Sleep(2000);
                     }
@@ -170,9 +174,8 @@ namespace Elite_Add_On_Helper
                     if (File.Exists(procname))
                     {
                         //woohoo! lets launch it
-                        toolStripStatusLabel1.Text = "Launching EdEngineer..";
-                        statusStrip1.Invalidate();
-                        statusStrip1.Refresh();
+                        updatestatus("Launching EdEngineer..");
+
                         Process.Start(procname);
                         System.Threading.Thread.Sleep(2000);
                     }
@@ -189,9 +192,7 @@ namespace Elite_Add_On_Helper
                     if (File.Exists(procname))
                     {
                         //woohoo! lets launch it
-                        toolStripStatusLabel1.Text = "Launching EDMC..";
-                        statusStrip1.Invalidate();
-                        statusStrip1.Refresh();
+                        updatestatus("Launching EDMC..");
                         Process.Start(procname);
                         System.Threading.Thread.Sleep(2000);
                     }
@@ -208,9 +209,7 @@ namespace Elite_Add_On_Helper
                     if (File.Exists(procname))
                     {
                         //woohoo! lets launch it
-                        toolStripStatusLabel1.Text = "Launching Elite Mats Helper..";
-                        statusStrip1.Invalidate();
-                        statusStrip1.Refresh();
+                        updatestatus("Launching Elite Mats Helper..");
                         Process.Start(procname);
                         System.Threading.Thread.Sleep(2000);
                     }
@@ -226,9 +225,8 @@ namespace Elite_Add_On_Helper
                     // does the file exist?
                     if (File.Exists(procname))
                     {
-                        toolStripStatusLabel1.Text = "Launching Voice Attack..";
-                        statusStrip1.Invalidate();
-                        statusStrip1.Refresh();
+                        updatestatus("Launching Voice Attack..");
+
                         //woohoo! lets launch it
                         Process.Start(procname);
                         System.Threading.Thread.Sleep(2000);
@@ -253,9 +251,8 @@ namespace Elite_Add_On_Helper
                         TARGETGUI.StartInfo.Arguments = targargs;
                         statusStrip1.Text = targargs;
                         Application.DoEvents();
-                        toolStripStatusLabel1.Text = "Launching Target..";
-                        statusStrip1.Invalidate();
-                        statusStrip1.Refresh();
+                        updatestatus("Launching Target..");
+
                         TARGETGUI.Start();
                         System.Threading.Thread.Sleep(2000);
 
@@ -274,32 +271,23 @@ namespace Elite_Add_On_Helper
                     // does the file exist?
                     if (File.Exists(procname))
                     {
-                        toolStripStatusLabel1.Text = "Launching Elite..";
-                        statusStrip1.Invalidate();
-                        statusStrip1.Refresh();
+                        updatestatus("Launching Elite..");
                         //woohoo! lets launch it
                         Process.Start(procname);
                         System.Threading.Thread.Sleep(2000);
                     }
                     else
                     {
-                        toolStripStatusLabel1.Text = "Elite exe not found!" + procname;
-                        statusStrip1.Invalidate();
-                        statusStrip1.Refresh();
+                        updatestatus("Elite exe not found!" + procname);
                     }
                 }
                 else
                 {
-                    toolStripStatusLabel1.Text = "Elite path not found!" + tb_edlaunch_path.Text;
-                    
-                    statusStrip1.Invalidate();
-                    statusStrip1.Refresh();
+                    updatestatus("Elite path not found!" + tb_edlaunch_path.Text);
                 }
             }
             System.Threading.Thread.Sleep(2000);
-            toolStripStatusLabel1.Text = "Ready";
-            statusStrip1.Invalidate();
-            statusStrip1.Refresh();
+            updatestatus("Ready");
             // for ref how to open a webpage in default browser
             //Process.Start("https://www.google.com/");
             //Console.ReadLine();
@@ -308,9 +296,7 @@ namespace Elite_Add_On_Helper
         //try to detect paths for the applications
         private void btn_autodetect_Click(object sender, EventArgs e)
         {
-            toolStripStatusLabel1.Text = "This may take a while.. Searching for EDMC";
-            statusStrip1.Invalidate();
-            statusStrip1.Refresh();
+            updatestatus("This may take a while.. Searching for EDMC");
             // lets check the default path
             // 
             string pathtocheck = @"C:\Program Files (x86)\EDMarketConnector";
@@ -322,17 +308,13 @@ namespace Elite_Add_On_Helper
             }
             else
             {
-                toolStripStatusLabel1.Text = "EDMC Not found";
-                statusStrip1.Invalidate();
-                statusStrip1.Refresh();
+                updatestatus("EDMC Not found");
+
             }
             System.Threading.Thread.Sleep(2000);
-            toolStripStatusLabel1.Text = "Ready";
-            statusStrip1.Invalidate();
-            statusStrip1.Refresh();
-            toolStripStatusLabel1.Text = "This may take a while.. Searching for Voice Attack";
-            statusStrip1.Invalidate();
-            statusStrip1.Refresh();
+
+            updatestatus("This may take a while.. Searching for Voice Attack");
+
             // lets check the default path
             // 
             pathtocheck = @"C:\Program Files (x86)\Steam\steamapps\common\VoiceAttack";
@@ -344,17 +326,11 @@ namespace Elite_Add_On_Helper
             }
             else
             {
-                toolStripStatusLabel1.Text = "Voice Attack Not found";
-                statusStrip1.Invalidate();
-                statusStrip1.Refresh();
+                updatestatus("Voice Attack Not found");
+
             }
             System.Threading.Thread.Sleep(2000);
-            toolStripStatusLabel1.Text = "Ready";
-            statusStrip1.Invalidate();
-            statusStrip1.Refresh();
-            toolStripStatusLabel1.Text = "This may take a while.. Searching for ED Discovery";
-            statusStrip1.Invalidate();
-            statusStrip1.Refresh();
+            updatestatus("This may take a while.. Searching for ED Discovery");
             // lets check the default path
             // 
             pathtocheck = @"C:\Program Files\EDDiscovery";
@@ -366,17 +342,12 @@ namespace Elite_Add_On_Helper
             }
             else
             {
-                toolStripStatusLabel1.Text = "ED Discovery Not found";
-                statusStrip1.Invalidate();
-                statusStrip1.Refresh();
+               updatestatus("ED Discovery Not found");
+
             }
             System.Threading.Thread.Sleep(2000);
-            toolStripStatusLabel1.Text = "Ready";
-            statusStrip1.Invalidate();
-            statusStrip1.Refresh();
-            toolStripStatusLabel1.Text = "This may take a while.. Searching for ED Odyysey Materials Helper";
-            statusStrip1.Invalidate();
-            statusStrip1.Refresh();
+            updatestatus("This may take a while.. Searching for ED Odyysey Materials Helper");
+
             // lets check the default path
             // 
             pathtocheck = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Elite Dangerous Odyssey Materials Helper Launcher";
@@ -388,17 +359,11 @@ namespace Elite_Add_On_Helper
             }
             else
             {
-                toolStripStatusLabel1.Text = " ED Odyysey Materials Helper not found";
-                statusStrip1.Invalidate();
-                statusStrip1.Refresh();
+                updatestatus(" ED Odyysey Materials Helper not found");
             }
             System.Threading.Thread.Sleep(2000);
-            toolStripStatusLabel1.Text = "Ready";
-            statusStrip1.Invalidate();
-            statusStrip1.Refresh();
-            toolStripStatusLabel1.Text = "This may take a while.. Searching for T.A.R.G.E.T";
-            statusStrip1.Invalidate();
-            statusStrip1.Refresh();
+
+            updatestatus("This may take a while.. Searching for T.A.R.G.E.T");
             // lets check the default path
             // 
             pathtocheck = @"c:\program files (x86)\Thrustmaster\TARGET\x64";
@@ -410,17 +375,12 @@ namespace Elite_Add_On_Helper
             }
             else
             {
-                toolStripStatusLabel1.Text = " ED Odyysey Materials Helper not found";
-                statusStrip1.Invalidate();
-                statusStrip1.Refresh();
+                updatestatus(" ED Odyysey Materials Helper not found");
             }
             System.Threading.Thread.Sleep(2000);
-            toolStripStatusLabel1.Text = "Ready";
-            statusStrip1.Invalidate();
-            statusStrip1.Refresh();
-            toolStripStatusLabel1.Text = "This may take a while.. Searching for Elite Dangerous";
-            statusStrip1.Invalidate();
-            statusStrip1.Refresh();
+
+            updatestatus("This may take a while.. Searching for Elite Dangerous");
+
             // lets check the default path
             // 
             pathtocheck = @"C:\Program Files (x86)\Steam\steamapps\common\Elite Dangerous\";
@@ -432,14 +392,10 @@ namespace Elite_Add_On_Helper
             }
             else
             {
-                toolStripStatusLabel1.Text = " Elite launcher not found";
-                statusStrip1.Invalidate();
-                statusStrip1.Refresh();
+                updatestatus("Elite launcher not found");
             }
             System.Threading.Thread.Sleep(2000);
-            toolStripStatusLabel1.Text = "Ready";
-            statusStrip1.Invalidate();
-            statusStrip1.Refresh();
+            updatestatus("Ready");
         }
     }
 }
