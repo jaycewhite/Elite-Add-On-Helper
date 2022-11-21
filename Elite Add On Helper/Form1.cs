@@ -75,10 +75,10 @@ namespace Elite_Add_On_Helper
         // form actions
         private void btn_edengineer_path_Click(object sender, EventArgs e)
         {
-                        string mypath = folderpath();
+            string mypath = folderpath();
             if(mypath != null) { 
-            tb_edengineer.Text = mypath;
-                }
+                tb_edengineer.Text = mypath;
+            }
 
         }
 
@@ -108,7 +108,7 @@ namespace Elite_Add_On_Helper
             string mypath = folderpath();
             if(mypath != null) { 
                 tb_edmc.Text = mypath;
-                }
+             }
         }
         private void btn_warthogscriptpath_Click(object sender, EventArgs e)
         {
@@ -124,42 +124,42 @@ namespace Elite_Add_On_Helper
         }
         private void btn_voiceattack_path_Click(object sender, EventArgs e)
         {
-                        string mypath = folderpath();
-            if(mypath != null) { 
-            tb_voiceattack.Text = mypath;
-                }
+            string mypath = folderpath();
+                if(mypath != null) { 
+                tb_voiceattack.Text = mypath;
+            }
         }
 
         private void btn_eddiscovery_path_Click(object sender, EventArgs e)
         {
-                        string mypath = folderpath();
-            if(mypath != null) { 
-            tb_eddisco.Text = mypath;
-                }
+            string mypath = folderpath();
+                if(mypath != null) { 
+                tb_eddisco.Text = mypath;
+             }
         }
 
         private void btn_edomhl_path_Click(object sender, EventArgs e)
         {
-                        string mypath = folderpath();
-            if(mypath != null) { 
-            tb_edomhl.Text = mypath;
-                }
+            string mypath = folderpath();
+                if(mypath != null) { 
+                tb_edomhl.Text = mypath;
+            }
         }
 
         private void btn_warthog_path_Click(object sender, EventArgs e)
         {
-                        string mypath = folderpath();
-            if(mypath != null) { 
-            tb_warthog.Text = mypath;
-                }
+             string mypath = folderpath();
+                if(mypath != null) { 
+                tb_warthog.Text = mypath;
+            }
         }
 
         private void btn_edlaunch_Click(object sender, EventArgs e)
         {
-                        string mypath = folderpath();
-            if(mypath != null) { 
-            tb_edlaunch_path.Text = mypath;
-                }
+            string mypath = folderpath();
+                if(mypath != null) { 
+                tb_edlaunch_path.Text = mypath;
+            }
         }
 
         // launch the apps!
