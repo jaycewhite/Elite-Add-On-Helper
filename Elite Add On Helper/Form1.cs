@@ -431,23 +431,30 @@ namespace Elite_Add_On_Helper
 
         private void Btn_install_EdEngineer_Click(object sender, EventArgs e)
         {
+            Updatestatus("Installing Ed Engineer");
             DownloadFileAndExecute("https://raw.githubusercontent.com/msarilar/EDEngineer/master/EDEngineer/releases/setup.exe");
-            //https://raw.githubusercontent.com/msarilar/EDEngineer/master/EDEngineer/releases/setup.exe
+            Updatestatus("Ready");
         }
 
         private void btn_install_edmc_Click(object sender, EventArgs e)
         {
+            Updatestatus("Installing EDMC");
             DownloadFileAndExecute("https://github.com/EDCD/EDMarketConnector/releases/download/Release%2F5.5.0/EDMarketConnector_win_5.5.0.msi");
+            Updatestatus("Ready");
         }
 
         private void btn_install_EDDiscovery_Click(object sender, EventArgs e)
         {
+            Updatestatus("Installing ED Discovery");
             DownloadFileAndExecute("https://github.com/EDDiscovery/EDDiscovery/releases/download/Release_15.1.4/EDDiscovery-15.1.4.exe");
+            Updatestatus("Ready");
         }
 
         private void btn_install_edomhl_Click(object sender, EventArgs e)
         {
+            Updatestatus("Installing ED Odyysesy Materials Helper");
             DownloadFileAndExecute("https://github.com/jixxed/ed-odyssey-materials-helper/releases/download/1.100/Elite.Dangerous.Odyssey.Materials.Helper-1.100.msi");
+            Updatestatus("Ready");
         }
     }
 }
