@@ -174,7 +174,7 @@ namespace Elite_Add_On_Helper
             this.savePrefsToolStripMenuItem.Name = "savePrefsToolStripMenuItem";
             this.savePrefsToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.savePrefsToolStripMenuItem.Text = "Save Prefs";
-            this.savePrefsToolStripMenuItem.Click += new System.EventHandler(this.savePrefsToolStripMenuItem_Click);
+            this.savePrefsToolStripMenuItem.Click += new System.EventHandler(this.SavePrefsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -210,7 +210,7 @@ namespace Elite_Add_On_Helper
             this.btn_edengineer_path.TabIndex = 11;
             this.btn_edengineer_path.Text = "Select Path..";
             this.btn_edengineer_path.UseVisualStyleBackColor = true;
-            this.btn_edengineer_path.Click += new System.EventHandler(this.btn_edengineer_path_Click);
+            this.btn_edengineer_path.Click += new System.EventHandler(this.Btn_edengineer_path_Click);
             // 
             // tb_edengineer
             // 
@@ -234,7 +234,7 @@ namespace Elite_Add_On_Helper
             this.btn_edmc_path.TabIndex = 13;
             this.btn_edmc_path.Text = "Select Path..";
             this.btn_edmc_path.UseVisualStyleBackColor = true;
-            this.btn_edmc_path.Click += new System.EventHandler(this.btn_edmc_path_Click);
+            this.btn_edmc_path.Click += new System.EventHandler(this.Btn_edmc_path_Click);
             // 
             // tb_voiceattack
             // 
@@ -251,7 +251,7 @@ namespace Elite_Add_On_Helper
             this.btn_voiceattack_path.TabIndex = 15;
             this.btn_voiceattack_path.Text = "Select Path..";
             this.btn_voiceattack_path.UseVisualStyleBackColor = true;
-            this.btn_voiceattack_path.Click += new System.EventHandler(this.btn_voiceattack_path_Click);
+            this.btn_voiceattack_path.Click += new System.EventHandler(this.Btn_voiceattack_path_Click);
             // 
             // tb_eddisco
             // 
@@ -268,7 +268,7 @@ namespace Elite_Add_On_Helper
             this.btn_eddiscovery_path.TabIndex = 17;
             this.btn_eddiscovery_path.Text = "Select Path..";
             this.btn_eddiscovery_path.UseVisualStyleBackColor = true;
-            this.btn_eddiscovery_path.Click += new System.EventHandler(this.btn_eddiscovery_path_Click);
+            this.btn_eddiscovery_path.Click += new System.EventHandler(this.Btn_eddiscovery_path_Click);
             // 
             // tb_edomhl
             // 
@@ -285,7 +285,7 @@ namespace Elite_Add_On_Helper
             this.btn_edomhl_path.TabIndex = 19;
             this.btn_edomhl_path.Text = "Select Path..";
             this.btn_edomhl_path.UseVisualStyleBackColor = true;
-            this.btn_edomhl_path.Click += new System.EventHandler(this.btn_edomhl_path_Click);
+            this.btn_edomhl_path.Click += new System.EventHandler(this.Btn_edomhl_path_Click);
             // 
             // tb_warthog
             // 
@@ -302,7 +302,7 @@ namespace Elite_Add_On_Helper
             this.btn_warthog_path.TabIndex = 21;
             this.btn_warthog_path.Text = "Select Path..";
             this.btn_warthog_path.UseVisualStyleBackColor = true;
-            this.btn_warthog_path.Click += new System.EventHandler(this.btn_warthog_path_Click);
+            this.btn_warthog_path.Click += new System.EventHandler(this.Btn_warthog_path_Click);
             // 
             // btn_install_EdEngineer
             // 
@@ -358,7 +358,7 @@ namespace Elite_Add_On_Helper
             this.btn_edlaunch.TabIndex = 29;
             this.btn_edlaunch.Text = "Select Path..";
             this.btn_edlaunch.UseVisualStyleBackColor = true;
-            this.btn_edlaunch.Click += new System.EventHandler(this.btn_edlaunch_Click);
+            this.btn_edlaunch.Click += new System.EventHandler(this.Btn_edlaunch_Click);
             // 
             // tb_edlaunch_path
             // 
@@ -375,7 +375,7 @@ namespace Elite_Add_On_Helper
             this.button1.TabIndex = 31;
             this.button1.Text = "Launch";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // statusStrip1
             // 
@@ -409,7 +409,7 @@ namespace Elite_Add_On_Helper
             this.btn_warthogscriptpath.TabIndex = 34;
             this.btn_warthogscriptpath.Text = "Select Path..";
             this.btn_warthogscriptpath.UseVisualStyleBackColor = true;
-            this.btn_warthogscriptpath.Click += new System.EventHandler(this.btn_warthogscriptpath_Click);
+            this.btn_warthogscriptpath.Click += new System.EventHandler(this.Btn_warthogscriptpath_Click);
             // 
             // cb_warthogscriptdir
             // 
@@ -429,7 +429,7 @@ namespace Elite_Add_On_Helper
             this.btn_autodetect.TabIndex = 36;
             this.btn_autodetect.Text = "Autodetect Paths..";
             this.btn_autodetect.UseVisualStyleBackColor = true;
-            this.btn_autodetect.Click += new System.EventHandler(this.btn_autodetect_Click);
+            this.btn_autodetect.Click += new System.EventHandler(this.Btn_autodetect_Click);
             // 
             // Form1
             // 

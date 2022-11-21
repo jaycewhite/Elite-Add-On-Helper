@@ -11,19 +11,19 @@ using System.Xml.Linq;
 
 namespace Elite_Add_On_Helper
 {
-    
+
     public partial class Form1 : Form
     {
-        
+
 
         public Form1()
         {
             InitializeComponent();
             Application.DoEvents();
-            load_prefs();
+            Load_prefs();
         }
 
-        private void load_prefs()
+        private void Load_prefs()
         {
             // load all the textboxes with values from settings file
             tb_edengineer.Text = Properties.Settings.Default["edengineer_path"].ToString();
@@ -44,41 +44,36 @@ namespace Elite_Add_On_Helper
             cb_warthogscriptdir.Checked = (bool)Properties.Settings.Default["warthogscriptdir_cb"];
         }
 
-        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
 
         // My Functions
-        private void updatestatus(string status)
+        private void Updatestatus(string status)
         {
+            // function to update the status bar
             toolStripStatusLabel1.Text = status;
-                        statusStrip1.Invalidate();
-                        statusStrip1.Refresh();
+            statusStrip1.Invalidate();
+            statusStrip1.Refresh();
         }
-        private string folderpath()
+        private string Folderpath()
         {
-            FolderBrowserDialog diag = new FolderBrowserDialog();
-            // set the root folder or it defaults to desktop
-            diag.RootFolder = Environment.SpecialFolder.MyComputer;
-           
-
+            FolderBrowserDialog diag = new FolderBrowserDialog
+            {
+                // set the root folder or it defaults to desktop
+                RootFolder = Environment.SpecialFolder.MyComputer
+            };
             if (diag.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-
             {
                 return diag.SelectedPath;
             }
             else { return null; }
         }
-
         // form actions
-        private void btn_edengineer_path_Click(object sender, EventArgs e)
+        // menu actions
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tb_edengineer.Text = folderpath();
-
+            this.Close();
         }
-
-        private void savePrefsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SavePrefsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default["edengineer_path"] = tb_edengineer.Text;
             Properties.Settings.Default["edmc_path"] = tb_edmc.Text;
@@ -98,57 +93,86 @@ namespace Elite_Add_On_Helper
             Properties.Settings.Default["edlaunch_cb"] = cb_edlaunch.Checked;
             Properties.Settings.Default.Save(); // Saves settings in application configuration file
         }
-        
-        private void btn_edmc_path_Click(object sender, EventArgs e)
+        // button actions
+        private void Btn_edengineer_path_Click(object sender, EventArgs e)
         {
-            tb_edmc.Text = folderpath();
+            string mypath = Folderpath();
+            if (mypath != null)
+            {
+                tb_edengineer.Text = mypath;
+            }
+
         }
-        private void btn_warthogscriptpath_Click(object sender, EventArgs e)
+        private void Btn_edmc_path_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openDialog = new OpenFileDialog();
-            openDialog.Title = "Select A File";
-            openDialog.Filter = "Thrustmaster Files (*.tmc)|*.tmc";
+            string mypath = Folderpath();
+            if (mypath != null)
+            {
+                tb_edmc.Text = mypath;
+            }
+        }
+        private void Btn_warthogscriptpath_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openDialog = new OpenFileDialog
+            {
+                Title = "Select A File",
+                Filter = "Thrustmaster Files (*.tmc)|*.tmc"
+            };
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
                 string file = openDialog.FileName;
                 tb_warthogscriptpath.Text = file;
             }
-
         }
-        private void btn_voiceattack_path_Click(object sender, EventArgs e)
+        private void Btn_voiceattack_path_Click(object sender, EventArgs e)
         {
-            tb_voiceattack.Text = folderpath();
+            string mypath = Folderpath();
+            if (mypath != null)
+            {
+                tb_voiceattack.Text = mypath;
+            }
         }
-
-        private void btn_eddiscovery_path_Click(object sender, EventArgs e)
+        private void Btn_eddiscovery_path_Click(object sender, EventArgs e)
         {
-            tb_eddisco.Text = folderpath();
+            string mypath = Folderpath();
+            if (mypath != null)
+            {
+                tb_eddisco.Text = mypath;
+            }
         }
-
-        private void btn_edomhl_path_Click(object sender, EventArgs e)
+        private void Btn_edomhl_path_Click(object sender, EventArgs e)
         {
-            tb_edomhl.Text = folderpath();
+            string mypath = Folderpath();
+            if (mypath != null)
+            {
+                tb_edomhl.Text = mypath;
+            }
         }
-
-        private void btn_warthog_path_Click(object sender, EventArgs e)
+        private void Btn_warthog_path_Click(object sender, EventArgs e)
         {
-            tb_warthog.Text = folderpath();
+            string mypath = Folderpath();
+            if (mypath != null)
+            {
+                tb_warthog.Text = mypath;
+            }
         }
-
-        private void btn_edlaunch_Click(object sender, EventArgs e)
+        private void Btn_edlaunch_Click(object sender, EventArgs e)
         {
-            tb_edlaunch_path.Text = folderpath();
+            string mypath = Folderpath();
+            if (mypath != null)
+            {
+                tb_edlaunch_path.Text = mypath;
+            }
         }
-
         // launch the apps!
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             string procname;
-            
+
             // ok lets launch some apps!
             //ed discovery
             if (cb_EDDiscovery.Checked == true)
-                {
+            {
                 // does the folder exist?
                 if (Directory.Exists(tb_eddisco.Text))
                 {
@@ -157,7 +181,7 @@ namespace Elite_Add_On_Helper
                     if (File.Exists(procname))
                     {
                         //woohoo! lets launch it
-                        updatestatus("Launching EdDiscovery..");
+                        Updatestatus("Launching EdDiscovery..");
                         Process.Start(procname);
                         System.Threading.Thread.Sleep(2000);
                     }
@@ -174,7 +198,7 @@ namespace Elite_Add_On_Helper
                     if (File.Exists(procname))
                     {
                         //woohoo! lets launch it
-                        updatestatus("Launching EdEngineer..");
+                        Updatestatus("Launching EdEngineer..");
 
                         Process.Start(procname);
                         System.Threading.Thread.Sleep(2000);
@@ -192,7 +216,7 @@ namespace Elite_Add_On_Helper
                     if (File.Exists(procname))
                     {
                         //woohoo! lets launch it
-                        updatestatus("Launching EDMC..");
+                        Updatestatus("Launching EDMC..");
                         Process.Start(procname);
                         System.Threading.Thread.Sleep(2000);
                     }
@@ -209,7 +233,7 @@ namespace Elite_Add_On_Helper
                     if (File.Exists(procname))
                     {
                         //woohoo! lets launch it
-                        updatestatus("Launching Elite Mats Helper..");
+                        Updatestatus("Launching Elite Mats Helper..");
                         Process.Start(procname);
                         System.Threading.Thread.Sleep(2000);
                     }
@@ -225,7 +249,7 @@ namespace Elite_Add_On_Helper
                     // does the file exist?
                     if (File.Exists(procname))
                     {
-                        updatestatus("Launching Voice Attack..");
+                        Updatestatus("Launching Voice Attack..");
 
                         //woohoo! lets launch it
                         Process.Start(procname);
@@ -236,12 +260,12 @@ namespace Elite_Add_On_Helper
             //warthog  ***************  WORKING ****************
             if (cb_warthog.Checked == true)
             {
-                
+
                 // does the folder exist?
                 if (Directory.Exists(tb_warthog.Text))
                 {
                     procname = tb_warthog.Text + "/TARGETGUI.exe";
-                    
+
                     string targargs = " -r " + "\"" + tb_warthogscriptpath.Text + "\"";
                     // does the file exist?
                     if (File.Exists(procname))
@@ -251,7 +275,7 @@ namespace Elite_Add_On_Helper
                         TARGETGUI.StartInfo.Arguments = targargs;
                         statusStrip1.Text = targargs;
                         Application.DoEvents();
-                        updatestatus("Launching Target..");
+                        Updatestatus("Launching Target..");
 
                         TARGETGUI.Start();
                         System.Threading.Thread.Sleep(2000);
@@ -271,32 +295,31 @@ namespace Elite_Add_On_Helper
                     // does the file exist?
                     if (File.Exists(procname))
                     {
-                        updatestatus("Launching Elite..");
+                        Updatestatus("Launching Elite..");
                         //woohoo! lets launch it
                         Process.Start(procname);
                         System.Threading.Thread.Sleep(2000);
                     }
                     else
                     {
-                        updatestatus("Elite exe not found!" + procname);
+                        Updatestatus("Elite exe not found!" + procname);
                     }
                 }
                 else
                 {
-                    updatestatus("Elite path not found!" + tb_edlaunch_path.Text);
+                    Updatestatus("Elite path not found!" + tb_edlaunch_path.Text);
                 }
             }
             System.Threading.Thread.Sleep(2000);
-            updatestatus("Ready");
+            Updatestatus("Ready");
             // for ref how to open a webpage in default browser
             //Process.Start("https://www.google.com/");
             //Console.ReadLine();
         }
-       
         //try to detect paths for the applications
-        private void btn_autodetect_Click(object sender, EventArgs e)
+        private void Btn_autodetect_Click(object sender, EventArgs e)
         {
-            updatestatus("This may take a while.. Searching for EDMC");
+            Updatestatus("This may take a while.. Searching for EDMC");
             // lets check the default path
             // 
             string pathtocheck = @"C:\Program Files (x86)\EDMarketConnector";
@@ -308,12 +331,12 @@ namespace Elite_Add_On_Helper
             }
             else
             {
-                updatestatus("EDMC Not found");
+                Updatestatus("EDMC Not found");
 
             }
             System.Threading.Thread.Sleep(2000);
 
-            updatestatus("This may take a while.. Searching for Voice Attack");
+            Updatestatus("This may take a while.. Searching for Voice Attack");
 
             // lets check the default path
             // 
@@ -326,11 +349,11 @@ namespace Elite_Add_On_Helper
             }
             else
             {
-                updatestatus("Voice Attack Not found");
+                Updatestatus("Voice Attack Not found");
 
             }
             System.Threading.Thread.Sleep(2000);
-            updatestatus("This may take a while.. Searching for ED Discovery");
+            Updatestatus("This may take a while.. Searching for ED Discovery");
             // lets check the default path
             // 
             pathtocheck = @"C:\Program Files\EDDiscovery";
@@ -342,11 +365,11 @@ namespace Elite_Add_On_Helper
             }
             else
             {
-               updatestatus("ED Discovery Not found");
+                Updatestatus("ED Discovery Not found");
 
             }
             System.Threading.Thread.Sleep(2000);
-            updatestatus("This may take a while.. Searching for ED Odyysey Materials Helper");
+            Updatestatus("This may take a while.. Searching for ED Odyysey Materials Helper");
 
             // lets check the default path
             // 
@@ -359,11 +382,11 @@ namespace Elite_Add_On_Helper
             }
             else
             {
-                updatestatus(" ED Odyysey Materials Helper not found");
+                Updatestatus(" ED Odyysey Materials Helper not found");
             }
             System.Threading.Thread.Sleep(2000);
 
-            updatestatus("This may take a while.. Searching for T.A.R.G.E.T");
+            Updatestatus("This may take a while.. Searching for T.A.R.G.E.T");
             // lets check the default path
             // 
             pathtocheck = @"c:\program files (x86)\Thrustmaster\TARGET\x64";
@@ -375,11 +398,11 @@ namespace Elite_Add_On_Helper
             }
             else
             {
-                updatestatus(" ED Odyysey Materials Helper not found");
+                Updatestatus(" ED Odyysey Materials Helper not found");
             }
             System.Threading.Thread.Sleep(2000);
 
-            updatestatus("This may take a while.. Searching for Elite Dangerous");
+            Updatestatus("This may take a while.. Searching for Elite Dangerous");
 
             // lets check the default path
             // 
@@ -392,10 +415,10 @@ namespace Elite_Add_On_Helper
             }
             else
             {
-                updatestatus("Elite launcher not found");
+                Updatestatus("Elite launcher not found");
             }
             System.Threading.Thread.Sleep(2000);
-            updatestatus("Ready");
+            Updatestatus("Ready");
         }
     }
 }
