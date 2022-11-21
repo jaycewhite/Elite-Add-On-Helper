@@ -44,10 +44,7 @@ namespace Elite_Add_On_Helper
             cb_warthogscriptdir.Checked = (bool)Properties.Settings.Default["warthogscriptdir_cb"];
         }
 
-        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
 
         // My Functions
         private void updatestatus(string status)
@@ -73,15 +70,11 @@ namespace Elite_Add_On_Helper
         }
 
         // form actions
-        private void btn_edengineer_path_Click(object sender, EventArgs e)
-        {
-            string mypath = folderpath();
-            if(mypath != null) { 
-                tb_edengineer.Text = mypath;
-            }
-
-        }
-
+        // menu actions
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+                {
+                    this.Close();
+                }
         private void savePrefsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default["edengineer_path"] = tb_edengineer.Text;
@@ -102,7 +95,15 @@ namespace Elite_Add_On_Helper
             Properties.Settings.Default["edlaunch_cb"] = cb_edlaunch.Checked;
             Properties.Settings.Default.Save(); // Saves settings in application configuration file
         }
-        
+        // button actions
+        private void btn_edengineer_path_Click(object sender, EventArgs e)
+        {
+            string mypath = folderpath();
+            if(mypath != null) { 
+                tb_edengineer.Text = mypath;
+            }
+
+        }
         private void btn_edmc_path_Click(object sender, EventArgs e)
         {
             string mypath = folderpath();
@@ -129,7 +130,6 @@ namespace Elite_Add_On_Helper
                 tb_voiceattack.Text = mypath;
             }
         }
-
         private void btn_eddiscovery_path_Click(object sender, EventArgs e)
         {
             string mypath = folderpath();
@@ -137,7 +137,6 @@ namespace Elite_Add_On_Helper
                 tb_eddisco.Text = mypath;
              }
         }
-
         private void btn_edomhl_path_Click(object sender, EventArgs e)
         {
             string mypath = folderpath();
@@ -145,7 +144,6 @@ namespace Elite_Add_On_Helper
                 tb_edomhl.Text = mypath;
             }
         }
-
         private void btn_warthog_path_Click(object sender, EventArgs e)
         {
              string mypath = folderpath();
@@ -153,7 +151,6 @@ namespace Elite_Add_On_Helper
                 tb_warthog.Text = mypath;
             }
         }
-
         private void btn_edlaunch_Click(object sender, EventArgs e)
         {
             string mypath = folderpath();
@@ -161,7 +158,6 @@ namespace Elite_Add_On_Helper
                 tb_edlaunch_path.Text = mypath;
             }
         }
-
         // launch the apps!
         private void button1_Click(object sender, EventArgs e)
         {
@@ -314,7 +310,6 @@ namespace Elite_Add_On_Helper
             //Process.Start("https://www.google.com/");
             //Console.ReadLine();
         }
-       
         //try to detect paths for the applications
         private void btn_autodetect_Click(object sender, EventArgs e)
         {
