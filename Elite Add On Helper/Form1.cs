@@ -126,7 +126,7 @@ namespace Elite_Add_On_Helper
         private void button1_Click(object sender, EventArgs e)
         {
             string procname;
-            string scriptname;
+            
             // ok lets launch some apps!
             //ed discovery
             if (cb_EDDiscovery.Checked == true)
@@ -211,8 +211,8 @@ namespace Elite_Add_On_Helper
                 if (Directory.Exists(tb_warthog.Text))
                 {
                     procname = tb_warthog.Text + "/TARGETGUI.exe";
-                    scriptname = tb_warthog.Text + "/AD_ED_v5.0.0.tmc";
-                    string targargs = " -r " + "\"" + tb_warthogscriptpath  + scriptname + "\"";
+                    
+                    string targargs = " -r " + "\"" + tb_warthogscriptpath + "\"";
                     // does the file exist?
                     if (File.Exists(procname))
                     {
