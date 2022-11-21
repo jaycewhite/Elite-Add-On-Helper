@@ -322,7 +322,7 @@ namespace Elite_Add_On_Helper
             }
             else
             {
-                toolStripStatusLabel1.Text = "Not found";
+                toolStripStatusLabel1.Text = "EDMC Not found";
                 statusStrip1.Invalidate();
                 statusStrip1.Refresh();
             }
@@ -330,7 +330,116 @@ namespace Elite_Add_On_Helper
             toolStripStatusLabel1.Text = "Ready";
             statusStrip1.Invalidate();
             statusStrip1.Refresh();
-
+            toolStripStatusLabel1.Text = "This may take a while.. Searching for Voice Attack";
+            statusStrip1.Invalidate();
+            statusStrip1.Refresh();
+            // lets check the default path
+            // 
+            pathtocheck = @"C:\Program Files (x86)\Steam\steamapps\common\VoiceAttack";
+            if (Directory.Exists(pathtocheck))
+            {
+                // found it!
+                tb_voiceattack.Text = pathtocheck;
+                cb_voiceattack.Checked = true;
+            }
+            else
+            {
+                toolStripStatusLabel1.Text = "Voice Attack Not found";
+                statusStrip1.Invalidate();
+                statusStrip1.Refresh();
+            }
+            System.Threading.Thread.Sleep(2000);
+            toolStripStatusLabel1.Text = "Ready";
+            statusStrip1.Invalidate();
+            statusStrip1.Refresh();
+            toolStripStatusLabel1.Text = "This may take a while.. Searching for ED Discovery";
+            statusStrip1.Invalidate();
+            statusStrip1.Refresh();
+            // lets check the default path
+            // 
+            pathtocheck = @"C:\Program Files\EDDiscovery";
+            if (Directory.Exists(pathtocheck))
+            {
+                // found it!
+                tb_eddisco.Text = pathtocheck;
+                cb_EDDiscovery.Checked = true;
+            }
+            else
+            {
+                toolStripStatusLabel1.Text = "ED Discovery Not found";
+                statusStrip1.Invalidate();
+                statusStrip1.Refresh();
+            }
+            System.Threading.Thread.Sleep(2000);
+            toolStripStatusLabel1.Text = "Ready";
+            statusStrip1.Invalidate();
+            statusStrip1.Refresh();
+            toolStripStatusLabel1.Text = "This may take a while.. Searching for ED Odyysey Materials Helper";
+            statusStrip1.Invalidate();
+            statusStrip1.Refresh();
+            // lets check the default path
+            // 
+            pathtocheck = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Elite Dangerous Odyssey Materials Helper Launcher";
+            if (Directory.Exists(pathtocheck))
+            {
+                // found it!
+                tb_edomhl.Text = pathtocheck;
+                cb_edomhl.Checked = true;
+            }
+            else
+            {
+                toolStripStatusLabel1.Text = " ED Odyysey Materials Helper not found";
+                statusStrip1.Invalidate();
+                statusStrip1.Refresh();
+            }
+            System.Threading.Thread.Sleep(2000);
+            toolStripStatusLabel1.Text = "Ready";
+            statusStrip1.Invalidate();
+            statusStrip1.Refresh();
+            toolStripStatusLabel1.Text = "This may take a while.. Searching for T.A.R.G.E.T";
+            statusStrip1.Invalidate();
+            statusStrip1.Refresh();
+            // lets check the default path
+            // 
+            pathtocheck = @"c:\program files (x86)\Thrustmaster\TARGET\x64";
+            if (Directory.Exists(pathtocheck))
+            {
+                // found it!
+                tb_warthog.Text = pathtocheck;
+                cb_warthog.Checked = true;
+            }
+            else
+            {
+                toolStripStatusLabel1.Text = " ED Odyysey Materials Helper not found";
+                statusStrip1.Invalidate();
+                statusStrip1.Refresh();
+            }
+            System.Threading.Thread.Sleep(2000);
+            toolStripStatusLabel1.Text = "Ready";
+            statusStrip1.Invalidate();
+            statusStrip1.Refresh();
+            toolStripStatusLabel1.Text = "This may take a while.. Searching for Elite Dangerous";
+            statusStrip1.Invalidate();
+            statusStrip1.Refresh();
+            // lets check the default path
+            // 
+            pathtocheck = @"C:\Program Files (x86)\Steam\steamapps\common\Elite Dangerous\";
+            if (Directory.Exists(pathtocheck))
+            {
+                // found it!
+                tb_edlaunch_path.Text = pathtocheck;
+                cb_edlaunch.Checked = true;
+            }
+            else
+            {
+                toolStripStatusLabel1.Text = " Elite launcher not found";
+                statusStrip1.Invalidate();
+                statusStrip1.Refresh();
+            }
+            System.Threading.Thread.Sleep(2000);
+            toolStripStatusLabel1.Text = "Ready";
+            statusStrip1.Invalidate();
+            statusStrip1.Refresh();
         }
     }
 }
