@@ -212,7 +212,7 @@ namespace Elite_Add_On_Helper
                 {
                     procname = tb_warthog.Text + "/TARGETGUI.exe";
                     scriptname = tb_warthog.Text + "/AD_ED_v5.0.0.tmc";
-                    string targargs = " -r " + "\"" + tb_warthogscriptpath + "\"" + scriptname;
+                    string targargs = " -r " + "\"" + tb_warthogscriptpath  + scriptname + "\"";
                     // does the file exist?
                     if (File.Exists(procname))
                     {
@@ -234,7 +234,15 @@ namespace Elite_Add_On_Helper
 
         private void btn_warthogscriptpath_Click(object sender, EventArgs e)
         {
-            tb_warthogscriptpath.Text = folderpath();
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Title = "Select A File";
+            openDialog.Filter = "Thrustmaster Files (*.tmc)|*.tmc";
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                string file = openDialog.FileName;
+                tb_warthogscriptpath.Text = file;
+            }
+            
         }
     }
 }
