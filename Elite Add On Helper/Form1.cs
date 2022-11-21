@@ -212,7 +212,7 @@ namespace Elite_Add_On_Helper
                 {
                     procname = tb_warthog.Text + "/TARGETGUI.exe";
                     
-                    string targargs = " -r " + "\"" + tb_warthogscriptpath + "\"";
+                    string targargs = " -r " + "\"" + tb_warthogscriptpath.Text + "\"";
                     // does the file exist?
                     if (File.Exists(procname))
                     {
@@ -228,6 +228,7 @@ namespace Elite_Add_On_Helper
                     }
                 }
             }
+            // for ref how to open a webpage in default browser
             //Process.Start("https://www.google.com/");
             //Console.ReadLine();
         }
