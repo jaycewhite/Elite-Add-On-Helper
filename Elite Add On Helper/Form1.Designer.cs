@@ -70,6 +70,7 @@ namespace Elite_Add_On_Helper
             this.btn_warthogscriptpath = new System.Windows.Forms.Button();
             this.cb_warthogscriptdir = new System.Windows.Forms.CheckBox();
             this.btn_autodetect = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -312,6 +313,7 @@ namespace Elite_Add_On_Helper
             this.btn_install_EdEngineer.TabIndex = 23;
             this.btn_install_EdEngineer.Text = "Install?";
             this.btn_install_EdEngineer.UseVisualStyleBackColor = true;
+            this.btn_install_EdEngineer.Click += new System.EventHandler(this.Btn_install_EdEngineer_Click);
             // 
             // btn_install_edmc
             // 
@@ -321,6 +323,7 @@ namespace Elite_Add_On_Helper
             this.btn_install_edmc.TabIndex = 24;
             this.btn_install_edmc.Text = "Install?";
             this.btn_install_edmc.UseVisualStyleBackColor = true;
+            this.btn_install_edmc.Click += new System.EventHandler(this.btn_install_edmc_Click);
             // 
             // btn_install_EDDiscovery
             // 
@@ -330,6 +333,7 @@ namespace Elite_Add_On_Helper
             this.btn_install_EDDiscovery.TabIndex = 26;
             this.btn_install_EDDiscovery.Text = "Install?";
             this.btn_install_EDDiscovery.UseVisualStyleBackColor = true;
+            this.btn_install_EDDiscovery.Click += new System.EventHandler(this.btn_install_EDDiscovery_Click);
             // 
             // btn_install_edomhl
             // 
@@ -339,6 +343,7 @@ namespace Elite_Add_On_Helper
             this.btn_install_edomhl.TabIndex = 27;
             this.btn_install_edomhl.Text = "Install?";
             this.btn_install_edomhl.UseVisualStyleBackColor = true;
+            this.btn_install_edomhl.Click += new System.EventHandler(this.btn_install_edomhl_Click);
             // 
             // cb_edlaunch
             // 
@@ -369,7 +374,7 @@ namespace Elite_Add_On_Helper
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(793, 388);
+            this.button1.Location = new System.Drawing.Point(683, 31);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(95, 33);
             this.button1.TabIndex = 31;
@@ -382,7 +387,7 @@ namespace Elite_Add_On_Helper
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 424);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 441);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(948, 26);
             this.statusStrip1.TabIndex = 32;
@@ -431,13 +436,21 @@ namespace Elite_Add_On_Helper
             this.btn_autodetect.UseVisualStyleBackColor = true;
             this.btn_autodetect.Click += new System.EventHandler(this.Btn_autodetect_Click);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(0, 415);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(948, 23);
+            this.progressBar1.TabIndex = 37;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(948, 450);
+            this.ClientSize = new System.Drawing.Size(948, 467);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btn_autodetect);
             this.Controls.Add(this.tb_warthogscriptpath);
             this.Controls.Add(this.btn_warthogscriptpath);
@@ -528,6 +541,7 @@ namespace Elite_Add_On_Helper
         private System.Windows.Forms.Button btn_warthogscriptpath;
         private System.Windows.Forms.CheckBox cb_warthogscriptdir;
         private System.Windows.Forms.Button btn_autodetect;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

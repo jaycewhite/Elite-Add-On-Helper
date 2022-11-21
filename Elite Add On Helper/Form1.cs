@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -47,6 +48,13 @@ namespace Elite_Add_On_Helper
 
 
         // My Functions
+        void DownloadFileAndExecute(string link)
+        {
+            WebClient wc = new WebClient();
+            string filename = Path.GetFileName(link);
+            wc.DownloadFile(link, filename);
+            Process.Start(filename);
+        }
         private void Updatestatus(string status)
         {
             // function to update the status bar
@@ -419,6 +427,27 @@ namespace Elite_Add_On_Helper
             }
             System.Threading.Thread.Sleep(2000);
             Updatestatus("Ready");
+        }
+
+        private void Btn_install_EdEngineer_Click(object sender, EventArgs e)
+        {
+            DownloadFileAndExecute("https://raw.githubusercontent.com/msarilar/EDEngineer/master/EDEngineer/releases/setup.exe");
+            //https://raw.githubusercontent.com/msarilar/EDEngineer/master/EDEngineer/releases/setup.exe
+        }
+
+        private void btn_install_edmc_Click(object sender, EventArgs e)
+        {
+            DownloadFileAndExecute("https://github.com/EDCD/EDMarketConnector/releases/download/Release%2F5.5.0/EDMarketConnector_win_5.5.0.msi");
+        }
+
+        private void btn_install_EDDiscovery_Click(object sender, EventArgs e)
+        {
+            DownloadFileAndExecute("https://github.com/EDDiscovery/EDDiscovery/releases/download/Release_15.1.4/EDDiscovery-15.1.4.exe");
+        }
+
+        private void btn_install_edomhl_Click(object sender, EventArgs e)
+        {
+            DownloadFileAndExecute("https://github.com/jixxed/ed-odyssey-materials-helper/releases/download/1.100/Elite.Dangerous.Odyssey.Materials.Helper-1.100.msi");
         }
     }
 }
