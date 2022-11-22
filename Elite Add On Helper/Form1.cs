@@ -340,7 +340,7 @@ namespace Elite_Add_On_Helper
             Updatestatus("Ready");
             // for ref how to open a webpage in default browser
             //Process.Start("https://www.google.com/");
-            //Console.ReadLine();
+            ;
         }
 
         //try to detect paths for the applications
@@ -357,7 +357,7 @@ namespace Elite_Add_On_Helper
                     // Drives;
 
                     Driveletter.Add(d.ToString());
-                    Console.WriteLine(d.Name);
+                    
                 }
             }
             string pathtocheck;
@@ -385,7 +385,7 @@ namespace Elite_Add_On_Helper
             string[] result;
             // now lets search app data for EdEngineer..           
             result = Directory.GetFiles(Foldertosearch, "EDEngineer.exe", SearchOption.AllDirectories);
-            result.ToList().ForEach(i => Console.WriteLine(i.ToString()));  //spit it out to the console for debugging
+            
             //ok so we have a list of possible candidates, lets get the last one..
 
             if (File.Exists(result.Last()))
@@ -418,7 +418,7 @@ namespace Elite_Add_On_Helper
                 foreach (string d in Driveletter)
                 {
                     pathtocheck = d + @"SteamLibrary\steamapps\common\VoiceAttack";
-                    Console.WriteLine(pathtocheck);
+                    
                     if (Directory.Exists(pathtocheck))
                     {
                         // found it!
@@ -508,7 +508,7 @@ namespace Elite_Add_On_Helper
 
 
                     pathtocheck = d + @"SteamLibrary\steamapps\common\Elite Dangerous";
-                    Console.WriteLine(pathtocheck);
+                   
                     if (Directory.Exists(pathtocheck))
                     {
                         // found it!
@@ -555,6 +555,11 @@ namespace Elite_Add_On_Helper
         }
 
         #endregion installs      
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

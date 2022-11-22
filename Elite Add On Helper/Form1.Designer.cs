@@ -71,16 +71,21 @@ namespace Elite_Add_On_Helper
             this.cb_warthogscriptdir = new System.Windows.Forms.CheckBox();
             this.btn_autodetect = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.nonvr_profile = new System.Windows.Forms.TabPage();
+            this.VR_Profile = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.nonvr_profile.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(793, 31);
+            this.pictureBox1.Location = new System.Drawing.Point(805, 444);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(143, 136);
             this.pictureBox1.TabIndex = 0;
@@ -91,7 +96,7 @@ namespace Elite_Add_On_Helper
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(12, 46);
+            this.label1.Location = new System.Drawing.Point(3, -87);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(568, 45);
             this.label1.TabIndex = 1;
@@ -103,7 +108,7 @@ namespace Elite_Add_On_Helper
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cb_edengineer.AutoSize = true;
-            this.cb_edengineer.Location = new System.Drawing.Point(20, 196);
+            this.cb_edengineer.Location = new System.Drawing.Point(6, 35);
             this.cb_edengineer.Name = "cb_edengineer";
             this.cb_edengineer.Size = new System.Drawing.Size(103, 20);
             this.cb_edengineer.TabIndex = 2;
@@ -113,7 +118,7 @@ namespace Elite_Add_On_Helper
             // cb_EDMarketConnector
             // 
             this.cb_EDMarketConnector.AutoSize = true;
-            this.cb_EDMarketConnector.Location = new System.Drawing.Point(20, 222);
+            this.cb_EDMarketConnector.Location = new System.Drawing.Point(6, 61);
             this.cb_EDMarketConnector.Name = "cb_EDMarketConnector";
             this.cb_EDMarketConnector.Size = new System.Drawing.Size(156, 20);
             this.cb_EDMarketConnector.TabIndex = 3;
@@ -123,7 +128,7 @@ namespace Elite_Add_On_Helper
             // cb_voiceattack
             // 
             this.cb_voiceattack.AutoSize = true;
-            this.cb_voiceattack.Location = new System.Drawing.Point(20, 248);
+            this.cb_voiceattack.Location = new System.Drawing.Point(6, 87);
             this.cb_voiceattack.Name = "cb_voiceattack";
             this.cb_voiceattack.Size = new System.Drawing.Size(104, 20);
             this.cb_voiceattack.TabIndex = 4;
@@ -133,7 +138,7 @@ namespace Elite_Add_On_Helper
             // cb_EDDiscovery
             // 
             this.cb_EDDiscovery.AutoSize = true;
-            this.cb_EDDiscovery.Location = new System.Drawing.Point(20, 274);
+            this.cb_EDDiscovery.Location = new System.Drawing.Point(6, 113);
             this.cb_EDDiscovery.Name = "cb_EDDiscovery";
             this.cb_EDDiscovery.Size = new System.Drawing.Size(112, 20);
             this.cb_EDDiscovery.TabIndex = 5;
@@ -143,7 +148,7 @@ namespace Elite_Add_On_Helper
             // cb_edomhl
             // 
             this.cb_edomhl.AutoSize = true;
-            this.cb_edomhl.Location = new System.Drawing.Point(20, 300);
+            this.cb_edomhl.Location = new System.Drawing.Point(6, 139);
             this.cb_edomhl.Name = "cb_edomhl";
             this.cb_edomhl.Size = new System.Drawing.Size(342, 20);
             this.cb_edomhl.TabIndex = 6;
@@ -187,7 +192,7 @@ namespace Elite_Add_On_Helper
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 159);
+            this.label2.Location = new System.Drawing.Point(6, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 16);
             this.label2.TabIndex = 8;
@@ -196,7 +201,7 @@ namespace Elite_Add_On_Helper
             // cb_warthog
             // 
             this.cb_warthog.AutoSize = true;
-            this.cb_warthog.Location = new System.Drawing.Point(20, 326);
+            this.cb_warthog.Location = new System.Drawing.Point(6, 165);
             this.cb_warthog.Name = "cb_warthog";
             this.cb_warthog.Size = new System.Drawing.Size(305, 20);
             this.cb_warthog.TabIndex = 10;
@@ -205,7 +210,7 @@ namespace Elite_Add_On_Helper
             // 
             // btn_edengineer_path
             // 
-            this.btn_edengineer_path.Location = new System.Drawing.Point(363, 192);
+            this.btn_edengineer_path.Location = new System.Drawing.Point(354, 32);
             this.btn_edengineer_path.Name = "btn_edengineer_path";
             this.btn_edengineer_path.Size = new System.Drawing.Size(111, 23);
             this.btn_edengineer_path.TabIndex = 11;
@@ -215,21 +220,21 @@ namespace Elite_Add_On_Helper
             // 
             // tb_edengineer
             // 
-            this.tb_edengineer.Location = new System.Drawing.Point(481, 193);
+            this.tb_edengineer.Location = new System.Drawing.Point(471, 34);
             this.tb_edengineer.Name = "tb_edengineer";
             this.tb_edengineer.Size = new System.Drawing.Size(307, 22);
             this.tb_edengineer.TabIndex = 12;
             // 
             // tb_edmc
             // 
-            this.tb_edmc.Location = new System.Drawing.Point(481, 220);
+            this.tb_edmc.Location = new System.Drawing.Point(471, 61);
             this.tb_edmc.Name = "tb_edmc";
             this.tb_edmc.Size = new System.Drawing.Size(307, 22);
             this.tb_edmc.TabIndex = 14;
             // 
             // btn_edmc_path
             // 
-            this.btn_edmc_path.Location = new System.Drawing.Point(363, 219);
+            this.btn_edmc_path.Location = new System.Drawing.Point(354, 61);
             this.btn_edmc_path.Name = "btn_edmc_path";
             this.btn_edmc_path.Size = new System.Drawing.Size(111, 23);
             this.btn_edmc_path.TabIndex = 13;
@@ -239,14 +244,14 @@ namespace Elite_Add_On_Helper
             // 
             // tb_voiceattack
             // 
-            this.tb_voiceattack.Location = new System.Drawing.Point(481, 246);
+            this.tb_voiceattack.Location = new System.Drawing.Point(471, 87);
             this.tb_voiceattack.Name = "tb_voiceattack";
             this.tb_voiceattack.Size = new System.Drawing.Size(307, 22);
             this.tb_voiceattack.TabIndex = 16;
             // 
             // btn_voiceattack_path
             // 
-            this.btn_voiceattack_path.Location = new System.Drawing.Point(363, 245);
+            this.btn_voiceattack_path.Location = new System.Drawing.Point(354, 87);
             this.btn_voiceattack_path.Name = "btn_voiceattack_path";
             this.btn_voiceattack_path.Size = new System.Drawing.Size(111, 23);
             this.btn_voiceattack_path.TabIndex = 15;
@@ -256,14 +261,14 @@ namespace Elite_Add_On_Helper
             // 
             // tb_eddisco
             // 
-            this.tb_eddisco.Location = new System.Drawing.Point(481, 272);
+            this.tb_eddisco.Location = new System.Drawing.Point(471, 113);
             this.tb_eddisco.Name = "tb_eddisco";
             this.tb_eddisco.Size = new System.Drawing.Size(307, 22);
             this.tb_eddisco.TabIndex = 18;
             // 
             // btn_eddiscovery_path
             // 
-            this.btn_eddiscovery_path.Location = new System.Drawing.Point(363, 271);
+            this.btn_eddiscovery_path.Location = new System.Drawing.Point(354, 113);
             this.btn_eddiscovery_path.Name = "btn_eddiscovery_path";
             this.btn_eddiscovery_path.Size = new System.Drawing.Size(111, 23);
             this.btn_eddiscovery_path.TabIndex = 17;
@@ -273,14 +278,14 @@ namespace Elite_Add_On_Helper
             // 
             // tb_edomhl
             // 
-            this.tb_edomhl.Location = new System.Drawing.Point(481, 298);
+            this.tb_edomhl.Location = new System.Drawing.Point(471, 139);
             this.tb_edomhl.Name = "tb_edomhl";
             this.tb_edomhl.Size = new System.Drawing.Size(307, 22);
             this.tb_edomhl.TabIndex = 20;
             // 
             // btn_edomhl_path
             // 
-            this.btn_edomhl_path.Location = new System.Drawing.Point(363, 297);
+            this.btn_edomhl_path.Location = new System.Drawing.Point(354, 139);
             this.btn_edomhl_path.Name = "btn_edomhl_path";
             this.btn_edomhl_path.Size = new System.Drawing.Size(111, 23);
             this.btn_edomhl_path.TabIndex = 19;
@@ -290,14 +295,14 @@ namespace Elite_Add_On_Helper
             // 
             // tb_warthog
             // 
-            this.tb_warthog.Location = new System.Drawing.Point(481, 324);
+            this.tb_warthog.Location = new System.Drawing.Point(471, 165);
             this.tb_warthog.Name = "tb_warthog";
             this.tb_warthog.Size = new System.Drawing.Size(307, 22);
             this.tb_warthog.TabIndex = 22;
             // 
             // btn_warthog_path
             // 
-            this.btn_warthog_path.Location = new System.Drawing.Point(363, 323);
+            this.btn_warthog_path.Location = new System.Drawing.Point(354, 165);
             this.btn_warthog_path.Name = "btn_warthog_path";
             this.btn_warthog_path.Size = new System.Drawing.Size(111, 23);
             this.btn_warthog_path.TabIndex = 21;
@@ -307,7 +312,7 @@ namespace Elite_Add_On_Helper
             // 
             // btn_install_EdEngineer
             // 
-            this.btn_install_EdEngineer.Location = new System.Drawing.Point(804, 192);
+            this.btn_install_EdEngineer.Location = new System.Drawing.Point(824, 33);
             this.btn_install_EdEngineer.Name = "btn_install_EdEngineer";
             this.btn_install_EdEngineer.Size = new System.Drawing.Size(75, 23);
             this.btn_install_EdEngineer.TabIndex = 23;
@@ -317,7 +322,7 @@ namespace Elite_Add_On_Helper
             // 
             // btn_install_edmc
             // 
-            this.btn_install_edmc.Location = new System.Drawing.Point(804, 219);
+            this.btn_install_edmc.Location = new System.Drawing.Point(824, 60);
             this.btn_install_edmc.Name = "btn_install_edmc";
             this.btn_install_edmc.Size = new System.Drawing.Size(75, 23);
             this.btn_install_edmc.TabIndex = 24;
@@ -327,7 +332,7 @@ namespace Elite_Add_On_Helper
             // 
             // btn_install_EDDiscovery
             // 
-            this.btn_install_EDDiscovery.Location = new System.Drawing.Point(804, 272);
+            this.btn_install_EDDiscovery.Location = new System.Drawing.Point(824, 113);
             this.btn_install_EDDiscovery.Name = "btn_install_EDDiscovery";
             this.btn_install_EDDiscovery.Size = new System.Drawing.Size(75, 23);
             this.btn_install_EDDiscovery.TabIndex = 26;
@@ -337,7 +342,7 @@ namespace Elite_Add_On_Helper
             // 
             // btn_install_edomhl
             // 
-            this.btn_install_edomhl.Location = new System.Drawing.Point(804, 297);
+            this.btn_install_edomhl.Location = new System.Drawing.Point(824, 138);
             this.btn_install_edomhl.Name = "btn_install_edomhl";
             this.btn_install_edomhl.Size = new System.Drawing.Size(75, 23);
             this.btn_install_edomhl.TabIndex = 27;
@@ -348,7 +353,7 @@ namespace Elite_Add_On_Helper
             // cb_edlaunch
             // 
             this.cb_edlaunch.AutoSize = true;
-            this.cb_edlaunch.Location = new System.Drawing.Point(19, 378);
+            this.cb_edlaunch.Location = new System.Drawing.Point(6, 217);
             this.cb_edlaunch.Name = "cb_edlaunch";
             this.cb_edlaunch.Size = new System.Drawing.Size(183, 20);
             this.cb_edlaunch.TabIndex = 28;
@@ -357,7 +362,7 @@ namespace Elite_Add_On_Helper
             // 
             // btn_edlaunch
             // 
-            this.btn_edlaunch.Location = new System.Drawing.Point(362, 376);
+            this.btn_edlaunch.Location = new System.Drawing.Point(353, 218);
             this.btn_edlaunch.Name = "btn_edlaunch";
             this.btn_edlaunch.Size = new System.Drawing.Size(111, 23);
             this.btn_edlaunch.TabIndex = 29;
@@ -367,14 +372,14 @@ namespace Elite_Add_On_Helper
             // 
             // tb_edlaunch_path
             // 
-            this.tb_edlaunch_path.Location = new System.Drawing.Point(480, 378);
+            this.tb_edlaunch_path.Location = new System.Drawing.Point(470, 219);
             this.tb_edlaunch_path.Name = "tb_edlaunch_path";
             this.tb_edlaunch_path.Size = new System.Drawing.Size(307, 22);
             this.tb_edlaunch_path.TabIndex = 30;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(683, 31);
+            this.button1.Location = new System.Drawing.Point(837, 367);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(95, 33);
             this.button1.TabIndex = 31;
@@ -387,7 +392,7 @@ namespace Elite_Add_On_Helper
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 441);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 586);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(948, 26);
             this.statusStrip1.TabIndex = 32;
@@ -401,14 +406,14 @@ namespace Elite_Add_On_Helper
             // 
             // tb_warthogscriptpath
             // 
-            this.tb_warthogscriptpath.Location = new System.Drawing.Point(481, 350);
+            this.tb_warthogscriptpath.Location = new System.Drawing.Point(471, 191);
             this.tb_warthogscriptpath.Name = "tb_warthogscriptpath";
             this.tb_warthogscriptpath.Size = new System.Drawing.Size(307, 22);
             this.tb_warthogscriptpath.TabIndex = 35;
             // 
             // btn_warthogscriptpath
             // 
-            this.btn_warthogscriptpath.Location = new System.Drawing.Point(363, 349);
+            this.btn_warthogscriptpath.Location = new System.Drawing.Point(354, 191);
             this.btn_warthogscriptpath.Name = "btn_warthogscriptpath";
             this.btn_warthogscriptpath.Size = new System.Drawing.Size(111, 23);
             this.btn_warthogscriptpath.TabIndex = 34;
@@ -419,7 +424,7 @@ namespace Elite_Add_On_Helper
             // cb_warthogscriptdir
             // 
             this.cb_warthogscriptdir.AutoSize = true;
-            this.cb_warthogscriptdir.Location = new System.Drawing.Point(20, 352);
+            this.cb_warthogscriptdir.Location = new System.Drawing.Point(6, 191);
             this.cb_warthogscriptdir.Name = "cb_warthogscriptdir";
             this.cb_warthogscriptdir.Size = new System.Drawing.Size(283, 20);
             this.cb_warthogscriptdir.TabIndex = 33;
@@ -428,7 +433,7 @@ namespace Elite_Add_On_Helper
             // 
             // btn_autodetect
             // 
-            this.btn_autodetect.Location = new System.Drawing.Point(481, 159);
+            this.btn_autodetect.Location = new System.Drawing.Point(471, 0);
             this.btn_autodetect.Name = "btn_autodetect";
             this.btn_autodetect.Size = new System.Drawing.Size(151, 23);
             this.btn_autodetect.TabIndex = 36;
@@ -443,58 +448,93 @@ namespace Elite_Add_On_Helper
             this.progressBar1.Size = new System.Drawing.Size(948, 23);
             this.progressBar1.TabIndex = 37;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.nonvr_profile);
+            this.tabControl1.Controls.Add(this.VR_Profile);
+            this.tabControl1.Location = new System.Drawing.Point(12, 31);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(924, 330);
+            this.tabControl1.TabIndex = 38;
+            // 
+            // nonvr_profile
+            // 
+            this.nonvr_profile.Controls.Add(this.label2);
+            this.nonvr_profile.Controls.Add(this.cb_edengineer);
+            this.nonvr_profile.Controls.Add(this.btn_autodetect);
+            this.nonvr_profile.Controls.Add(this.tb_warthogscriptpath);
+            this.nonvr_profile.Controls.Add(this.btn_install_edomhl);
+            this.nonvr_profile.Controls.Add(this.btn_install_EDDiscovery);
+            this.nonvr_profile.Controls.Add(this.cb_EDMarketConnector);
+            this.nonvr_profile.Controls.Add(this.btn_install_edmc);
+            this.nonvr_profile.Controls.Add(this.cb_voiceattack);
+            this.nonvr_profile.Controls.Add(this.btn_install_EdEngineer);
+            this.nonvr_profile.Controls.Add(this.btn_warthogscriptpath);
+            this.nonvr_profile.Controls.Add(this.tb_edlaunch_path);
+            this.nonvr_profile.Controls.Add(this.cb_EDDiscovery);
+            this.nonvr_profile.Controls.Add(this.cb_warthogscriptdir);
+            this.nonvr_profile.Controls.Add(this.cb_edomhl);
+            this.nonvr_profile.Controls.Add(this.cb_warthog);
+            this.nonvr_profile.Controls.Add(this.btn_edlaunch);
+            this.nonvr_profile.Controls.Add(this.tb_warthog);
+            this.nonvr_profile.Controls.Add(this.cb_edlaunch);
+            this.nonvr_profile.Controls.Add(this.tb_edomhl);
+            this.nonvr_profile.Controls.Add(this.btn_edengineer_path);
+            this.nonvr_profile.Controls.Add(this.tb_eddisco);
+            this.nonvr_profile.Controls.Add(this.btn_edmc_path);
+            this.nonvr_profile.Controls.Add(this.tb_voiceattack);
+            this.nonvr_profile.Controls.Add(this.btn_voiceattack_path);
+            this.nonvr_profile.Controls.Add(this.tb_edmc);
+            this.nonvr_profile.Controls.Add(this.btn_eddiscovery_path);
+            this.nonvr_profile.Controls.Add(this.tb_edengineer);
+            this.nonvr_profile.Controls.Add(this.btn_edomhl_path);
+            this.nonvr_profile.Controls.Add(this.label1);
+            this.nonvr_profile.Controls.Add(this.btn_warthog_path);
+            this.nonvr_profile.Location = new System.Drawing.Point(4, 25);
+            this.nonvr_profile.Name = "nonvr_profile";
+            this.nonvr_profile.Padding = new System.Windows.Forms.Padding(3);
+            this.nonvr_profile.Size = new System.Drawing.Size(916, 301);
+            this.nonvr_profile.TabIndex = 0;
+            this.nonvr_profile.Text = "Non VR Profile";
+            this.nonvr_profile.UseVisualStyleBackColor = true;
+            // 
+            // VR_Profile
+            // 
+            this.VR_Profile.Location = new System.Drawing.Point(4, 25);
+            this.VR_Profile.Name = "VR_Profile";
+            this.VR_Profile.Padding = new System.Windows.Forms.Padding(3);
+            this.VR_Profile.Size = new System.Drawing.Size(916, 301);
+            this.VR_Profile.TabIndex = 1;
+            this.VR_Profile.Text = "VR Profile";
+            this.VR_Profile.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(948, 467);
+            this.ClientSize = new System.Drawing.Size(948, 612);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.btn_autodetect);
-            this.Controls.Add(this.tb_warthogscriptpath);
-            this.Controls.Add(this.btn_warthogscriptpath);
-            this.Controls.Add(this.cb_warthogscriptdir);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.tb_edlaunch_path);
-            this.Controls.Add(this.btn_edlaunch);
-            this.Controls.Add(this.cb_edlaunch);
-            this.Controls.Add(this.btn_install_edomhl);
-            this.Controls.Add(this.btn_install_EDDiscovery);
-            this.Controls.Add(this.btn_install_edmc);
-            this.Controls.Add(this.btn_install_EdEngineer);
-            this.Controls.Add(this.tb_warthog);
-            this.Controls.Add(this.btn_warthog_path);
-            this.Controls.Add(this.tb_edomhl);
-            this.Controls.Add(this.btn_edomhl_path);
-            this.Controls.Add(this.tb_eddisco);
-            this.Controls.Add(this.btn_eddiscovery_path);
-            this.Controls.Add(this.tb_voiceattack);
-            this.Controls.Add(this.btn_voiceattack_path);
-            this.Controls.Add(this.tb_edmc);
-            this.Controls.Add(this.btn_edmc_path);
-            this.Controls.Add(this.tb_edengineer);
-            this.Controls.Add(this.btn_edengineer_path);
-            this.Controls.Add(this.cb_warthog);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.cb_edomhl);
-            this.Controls.Add(this.cb_EDDiscovery);
-            this.Controls.Add(this.cb_voiceattack);
-            this.Controls.Add(this.cb_EDMarketConnector);
-            this.Controls.Add(this.cb_edengineer);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Elite AddOn Helper";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.nonvr_profile.ResumeLayout(false);
+            this.nonvr_profile.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -542,6 +582,9 @@ namespace Elite_Add_On_Helper
         private System.Windows.Forms.CheckBox cb_warthogscriptdir;
         private System.Windows.Forms.Button btn_autodetect;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage nonvr_profile;
+        private System.Windows.Forms.TabPage VR_Profile;
     }
 }
 
