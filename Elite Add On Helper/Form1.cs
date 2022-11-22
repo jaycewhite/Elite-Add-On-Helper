@@ -381,6 +381,18 @@ namespace Elite_Add_On_Helper
         // TODO get path and exe names to make launching a simple loop operation.
         private void Btn_autodetect_Click(object sender, EventArgs e)
         {
+            // Display the ProgressBar control.
+            progressBar1.Visible = true;
+            // Set Minimum to 1 to represent the first file being copied.
+            progressBar1.Minimum = 1;
+            // Set Maximum to the total number of files to copy.
+            int Totalchecked = nonvr_profile.Controls.OfType<System.Windows.Forms.CheckBox>().Count();
+            progressBar1.Maximum = Totalchecked;
+            Console.WriteLine(Totalchecked);
+            // Set the initial value of the ProgressBar.
+            progressBar1.Value = 1;
+            // Set the Step property to a value of 1 to represent each file being copied.
+            progressBar1.Step = 1;
             List<String> Driveletter = new List<string>();                                  //who has more than 10 local drives???
             DriveInfo[] allDrives = DriveInfo.GetDrives();
             foreach (DriveInfo d in allDrives)
@@ -398,6 +410,8 @@ namespace Elite_Add_On_Helper
             Updatestatus("This may take a while.. Searching for EDMC");
             // lets check the default path
             // 
+            progressBar1.PerformStep();
+            progressBar1.Refresh();
             pathtocheck = @"C:\Program Files (x86)\EDMarketConnector";
             if (Directory.Exists(pathtocheck))
             {
@@ -411,7 +425,8 @@ namespace Elite_Add_On_Helper
                 Updatestatus("EDMC Not found");
 
             }
-
+            progressBar1.PerformStep();
+            progressBar1.Refresh();
             Updatestatus("This may take a while.. Searching for Ed Engineer");
             // lets get the users appdata/local folder...
             string Foldertosearch = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\apps";
@@ -436,7 +451,8 @@ namespace Elite_Add_On_Helper
                 Updatestatus("Ed Engineer Not found");
             }
             Updatestatus("This may take a while.. Searching for Voice Attack");
-
+            progressBar1.PerformStep();
+            progressBar1.Refresh();
             // lets check the default path
             // lets also search well known locations on all local fixed drives
             pathtocheck = @"C:\Program Files (x86)\Steam\steamapps\commonVoiceAttack";
@@ -447,7 +463,7 @@ namespace Elite_Add_On_Helper
                 tb_voiceattack.Refresh();
                 cb_voiceattack.Checked = true;
             }
-            else
+            else                                    // not found in default? lets search all local drives for steam apps
             {
                 foreach (string d in Driveletter)
                 {
@@ -467,7 +483,8 @@ namespace Elite_Add_On_Helper
                     }
                 }
             }
-
+            progressBar1.PerformStep();
+            progressBar1.Refresh();
             Updatestatus("This may take a while.. Searching for ED Discovery");
             // lets check the default path
             // 
@@ -484,7 +501,8 @@ namespace Elite_Add_On_Helper
                 Updatestatus("ED Discovery Not found");
 
             }
-
+            progressBar1.PerformStep();
+            progressBar1.Refresh();
             Updatestatus("This may take a while.. Searching for ED Odyysey Materials Helper");
 
             // lets check the default path
@@ -504,7 +522,8 @@ namespace Elite_Add_On_Helper
                 Updatestatus(" ED Odyysey Materials Helper not found");
             }
 
-
+            progressBar1.PerformStep();
+            progressBar1.Refresh();
             Updatestatus("This may take a while.. Searching for T.A.R.G.E.T");
             // lets check the default path
             // 
@@ -521,7 +540,8 @@ namespace Elite_Add_On_Helper
                 Updatestatus(" ED Odyysey Materials Helper not found");
             }
 
-
+            progressBar1.PerformStep();
+            progressBar1.Refresh();
             Updatestatus("This may take a while.. Searching for Elite Dangerous");
 
             // lets check the default path
@@ -535,7 +555,7 @@ namespace Elite_Add_On_Helper
                 tb_edlaunch_path.Refresh();
                 cb_edlaunch.Checked = true;
             }
-            else
+            else                                    // not found in default? lets search all local drives for steam apps
             {
                 foreach (string d in Driveletter)
                 {
@@ -557,6 +577,8 @@ namespace Elite_Add_On_Helper
                 Updatestatus("Elite launcher not found");
             }
             System.Threading.Thread.Sleep(2000);
+            progressBar1.Value= 1;
+            progressBar1.Refresh();
             Updatestatus("Ready");
         }
         # region installs
