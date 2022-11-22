@@ -8,11 +8,11 @@ Dont forget to save preferences with the File - Save Prefs option!
 
 To Do:
 
-** Increase the amount of addons supported
+* Increase the amount of addons supported
 
-** Add support for websites (Miner Tools, Spansh, Inara etc)
+* Add support for websites (Miner Tools, Spansh, Inara etc)
 
-** Add a VR profile to enable launching different apps when in VR
+* Add a VR profile to enable launching different apps when in VR
 
 
 
