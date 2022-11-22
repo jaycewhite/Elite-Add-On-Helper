@@ -92,8 +92,8 @@ namespace Elite_Add_On_Helper
             // 
             // cb_edengineer
             // 
-            this.cb_edengineer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.cb_edengineer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cb_edengineer.AutoSize = true;
             this.cb_edengineer.Location = new System.Drawing.Point(6, 35);
@@ -380,7 +380,7 @@ namespace Elite_Add_On_Helper
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 408);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 420);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(948, 26);
             this.statusStrip1.TabIndex = 32;
@@ -421,6 +421,7 @@ namespace Elite_Add_On_Helper
             // 
             // btn_autodetect
             // 
+            this.btn_autodetect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_autodetect.Location = new System.Drawing.Point(471, 0);
             this.btn_autodetect.Name = "btn_autodetect";
             this.btn_autodetect.Size = new System.Drawing.Size(151, 23);
@@ -435,7 +436,7 @@ namespace Elite_Add_On_Helper
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(948, 23);
             this.progressBar1.TabIndex = 37;
-            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
+
             // 
             // tabControl1
             // 
@@ -503,9 +504,8 @@ namespace Elite_Add_On_Helper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(948, 434);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(948, 446);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.statusStrip1);
