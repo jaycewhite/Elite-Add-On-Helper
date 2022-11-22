@@ -1,4 +1,4 @@
-﻿using Elite_Add_On_Helper.Properties;
+﻿//using Elite_Add_On_Helper.Properties;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,10 +7,10 @@ using System.Management;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Text;
+//using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
+//using System.Xml.Linq;
 using System.Data;
 using System.Drawing;
 
@@ -28,6 +28,7 @@ namespace Elite_Add_On_Helper
             Load_prefs();
         }
         
+        //load our preferences..
         private void Load_prefs()
         {
             // load all the textboxes with values from settings file
@@ -50,11 +51,12 @@ namespace Elite_Add_On_Helper
         }
 
         // test region
-      
-        
+
+
         //end test region
 
         // My Functions
+        #region functions
         private string Findfile(string FILENAME)
         {
             const string FOLDER = @"c:\";
@@ -133,6 +135,7 @@ namespace Elite_Add_On_Helper
             }
             else { return null; }
         }
+        #endregion
         // form actions
         // menu actions
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -160,6 +163,7 @@ namespace Elite_Add_On_Helper
             Properties.Settings.Default.Save(); // Saves settings in application configuration file
         }
         // button actions
+        #region browse for paths
         private void Btn_edengineer_path_Click(object sender, EventArgs e)
         {
             string mypath = Folderpath();
@@ -230,6 +234,7 @@ namespace Elite_Add_On_Helper
                 tb_edlaunch_path.Text = mypath;
             }
         }
+        #endregion
         // launch the apps!
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -382,7 +387,9 @@ namespace Elite_Add_On_Helper
             //Process.Start("https://www.google.com/");
             //Console.ReadLine();
         }
+
         //try to detect paths for the applications
+        // TODO get path and exe names to make launching a simple loop operation.
         private void Btn_autodetect_Click(object sender, EventArgs e)
         {
             string pathtocheck;
@@ -522,7 +529,7 @@ namespace Elite_Add_On_Helper
             System.Threading.Thread.Sleep(2000);
             Updatestatus("Ready");
         }
-
+ # region installs
         private void Btn_install_EdEngineer_Click(object sender, EventArgs e)
         {
             Updatestatus("Installing Ed Engineer");
@@ -551,7 +558,7 @@ namespace Elite_Add_On_Helper
             Updatestatus("Ready");
         }
 
-       
+#endregion installs      
     }
 }
 
