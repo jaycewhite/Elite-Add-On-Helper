@@ -1,7 +1,9 @@
 ﻿using Elite_Add_On_Helper.Properties;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Management;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -9,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Data;
+using System.Drawing;
 
 namespace Elite_Add_On_Helper
 {
@@ -23,7 +27,7 @@ namespace Elite_Add_On_Helper
             Application.DoEvents();
             Load_prefs();
         }
-
+        
         private void Load_prefs()
         {
             // load all the textboxes with values from settings file
@@ -45,9 +49,63 @@ namespace Elite_Add_On_Helper
             cb_warthogscriptdir.Checked = (bool)Properties.Settings.Default["warthogscriptdir_cb"];
         }
 
-
+        // test region
+      
+        
+        //end test region
 
         // My Functions
+        private string Findfile(string FILENAME)
+        {
+            const string FOLDER = @"c:\";
+            string[] res;
+            DirectoryInfo info = new DirectoryInfo(FOLDER);
+            try
+            {
+                foreach (DirectoryInfo childInfo in info.GetDirectories())
+                {
+                    Updatestatus(childInfo.FullName);
+                    Console.WriteLine(childInfo.FullName);
+                    try
+                    {
+                        res = Directory.GetFiles(childInfo.FullName, FILENAME, SearchOption.AllDirectories);
+                        Console.WriteLine(res);
+                    }
+                    catch (Exception ex)
+                    {
+                        string errorMsg = string.Format("Exception Folder : {0}, Error : {1}", info.FullName, ex.Message);
+                        Console.WriteLine(errorMsg);
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string errorMsg = string.Format("Exception Folder : {0}, Error : {1}", info.FullName, ex.Message);
+                Console.WriteLine(errorMsg);
+                
+            }
+
+            System.Threading.Thread.Sleep(2000);
+
+            System.Threading.Thread.Sleep(2000);
+
+
+            var files = new List<string>();
+
+            foreach (DriveInfo d in DriveInfo.GetDrives().Where(x => x.IsReady == true))
+            {
+                try
+                {
+                    Updatestatus("Searching " + d.RootDirectory.FullName);
+                    System.Threading.Thread.Sleep(2000);
+                    files.AddRange(Directory.GetFiles(d.RootDirectory.FullName, FILENAME, SearchOption.AllDirectories));
+                }
+                catch { }
+            }
+            if (files.Count == 0) { return "Not Found"; } else {
+                return files.First(); }
+        }
         void DownloadFileAndExecute(string link)
         {
             WebClient wc = new WebClient();
@@ -346,13 +404,21 @@ namespace Elite_Add_On_Helper
             System.Threading.Thread.Sleep(2000);
             Updatestatus("This may take a while.. Searching for Ed Engineer");
 
-            pathtocheck = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +@"\Microsoft\Windows\Start Menu\Programs\Max";
+             string Foldertosearch = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\apps";
+            string[] result;
+           // Console.WriteLine(Foldertosearch);
+           result = Directory.GetFiles(Foldertosearch, "EDEngineer.exe", SearchOption.AllDirectories);
+           result.ToList().ForEach(i => Console.WriteLine(i.ToString()));  //spit it out to the console for debugging
+            //ok so we have a list of possible candidates, lets get the last one..
 
-            if (Directory.Exists(pathtocheck))
+            if (File.Exists(result.Last()))
             {
                 // found it!
-                tb_edmc.Text = pathtocheck;
-                cb_EDMarketConnector.Checked = true;
+                string edeng = result.Last();
+                edeng = edeng.Replace(@"\EDEngineer.exe", "");
+                tb_edengineer.Text = edeng;
+                tb_edengineer.Refresh();
+                cb_edengineer.Checked = true;
             }
             else
             {
@@ -477,6 +543,8 @@ namespace Elite_Add_On_Helper
             DownloadFileAndExecute("https://github.com/jixxed/ed-odyssey-materials-helper/releases/download/1.100/Elite.Dangerous.Odyssey.Materials.Helper-1.100.msi");
             Updatestatus("Ready");
         }
+
+       
     }
 }
 
