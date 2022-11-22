@@ -6,7 +6,8 @@ Autodetects looks for apps in their default locations, if you have change the in
 
 Dont forget to save preferences with the File - Save Prefs option!
 
-To DO:
+To Do:
+
  Increase the amount of addons supported
 
  Add support for websites (Miner Tools, Spansh, Inara etc)
