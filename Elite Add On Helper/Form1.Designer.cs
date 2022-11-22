@@ -31,7 +31,6 @@ namespace Elite_Add_On_Helper
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cb_edengineer = new System.Windows.Forms.CheckBox();
             this.cb_EDMarketConnector = new System.Windows.Forms.CheckBox();
@@ -63,7 +62,7 @@ namespace Elite_Add_On_Helper
             this.cb_edlaunch = new System.Windows.Forms.CheckBox();
             this.btn_edlaunch = new System.Windows.Forms.Button();
             this.tb_edlaunch_path = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_launch_nonvr = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tb_warthogscriptpath = new System.Windows.Forms.TextBox();
@@ -74,22 +73,11 @@ namespace Elite_Add_On_Helper
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.nonvr_profile = new System.Windows.Forms.TabPage();
             this.VR_Profile = new System.Windows.Forms.TabPage();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.nonvr_profile.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(805, 444);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(143, 136);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -210,9 +198,9 @@ namespace Elite_Add_On_Helper
             // 
             // btn_edengineer_path
             // 
-            this.btn_edengineer_path.Location = new System.Drawing.Point(354, 32);
+            this.btn_edengineer_path.Location = new System.Drawing.Point(386, 32);
             this.btn_edengineer_path.Name = "btn_edengineer_path";
-            this.btn_edengineer_path.Size = new System.Drawing.Size(111, 23);
+            this.btn_edengineer_path.Size = new System.Drawing.Size(111, 24);
             this.btn_edengineer_path.TabIndex = 11;
             this.btn_edengineer_path.Text = "Select Path..";
             this.btn_edengineer_path.UseVisualStyleBackColor = true;
@@ -220,21 +208,21 @@ namespace Elite_Add_On_Helper
             // 
             // tb_edengineer
             // 
-            this.tb_edengineer.Location = new System.Drawing.Point(471, 34);
+            this.tb_edengineer.Location = new System.Drawing.Point(512, 34);
             this.tb_edengineer.Name = "tb_edengineer";
             this.tb_edengineer.Size = new System.Drawing.Size(307, 22);
             this.tb_edengineer.TabIndex = 12;
             // 
             // tb_edmc
             // 
-            this.tb_edmc.Location = new System.Drawing.Point(471, 61);
+            this.tb_edmc.Location = new System.Drawing.Point(512, 61);
             this.tb_edmc.Name = "tb_edmc";
             this.tb_edmc.Size = new System.Drawing.Size(307, 22);
             this.tb_edmc.TabIndex = 14;
             // 
             // btn_edmc_path
             // 
-            this.btn_edmc_path.Location = new System.Drawing.Point(354, 61);
+            this.btn_edmc_path.Location = new System.Drawing.Point(386, 61);
             this.btn_edmc_path.Name = "btn_edmc_path";
             this.btn_edmc_path.Size = new System.Drawing.Size(111, 23);
             this.btn_edmc_path.TabIndex = 13;
@@ -244,14 +232,14 @@ namespace Elite_Add_On_Helper
             // 
             // tb_voiceattack
             // 
-            this.tb_voiceattack.Location = new System.Drawing.Point(471, 87);
+            this.tb_voiceattack.Location = new System.Drawing.Point(512, 87);
             this.tb_voiceattack.Name = "tb_voiceattack";
             this.tb_voiceattack.Size = new System.Drawing.Size(307, 22);
             this.tb_voiceattack.TabIndex = 16;
             // 
             // btn_voiceattack_path
             // 
-            this.btn_voiceattack_path.Location = new System.Drawing.Point(354, 87);
+            this.btn_voiceattack_path.Location = new System.Drawing.Point(386, 87);
             this.btn_voiceattack_path.Name = "btn_voiceattack_path";
             this.btn_voiceattack_path.Size = new System.Drawing.Size(111, 23);
             this.btn_voiceattack_path.TabIndex = 15;
@@ -261,14 +249,14 @@ namespace Elite_Add_On_Helper
             // 
             // tb_eddisco
             // 
-            this.tb_eddisco.Location = new System.Drawing.Point(471, 113);
+            this.tb_eddisco.Location = new System.Drawing.Point(512, 113);
             this.tb_eddisco.Name = "tb_eddisco";
             this.tb_eddisco.Size = new System.Drawing.Size(307, 22);
             this.tb_eddisco.TabIndex = 18;
             // 
             // btn_eddiscovery_path
             // 
-            this.btn_eddiscovery_path.Location = new System.Drawing.Point(354, 113);
+            this.btn_eddiscovery_path.Location = new System.Drawing.Point(386, 113);
             this.btn_eddiscovery_path.Name = "btn_eddiscovery_path";
             this.btn_eddiscovery_path.Size = new System.Drawing.Size(111, 23);
             this.btn_eddiscovery_path.TabIndex = 17;
@@ -278,14 +266,14 @@ namespace Elite_Add_On_Helper
             // 
             // tb_edomhl
             // 
-            this.tb_edomhl.Location = new System.Drawing.Point(471, 139);
+            this.tb_edomhl.Location = new System.Drawing.Point(512, 139);
             this.tb_edomhl.Name = "tb_edomhl";
             this.tb_edomhl.Size = new System.Drawing.Size(307, 22);
             this.tb_edomhl.TabIndex = 20;
             // 
             // btn_edomhl_path
             // 
-            this.btn_edomhl_path.Location = new System.Drawing.Point(354, 139);
+            this.btn_edomhl_path.Location = new System.Drawing.Point(386, 139);
             this.btn_edomhl_path.Name = "btn_edomhl_path";
             this.btn_edomhl_path.Size = new System.Drawing.Size(111, 23);
             this.btn_edomhl_path.TabIndex = 19;
@@ -295,14 +283,14 @@ namespace Elite_Add_On_Helper
             // 
             // tb_warthog
             // 
-            this.tb_warthog.Location = new System.Drawing.Point(471, 165);
+            this.tb_warthog.Location = new System.Drawing.Point(512, 165);
             this.tb_warthog.Name = "tb_warthog";
             this.tb_warthog.Size = new System.Drawing.Size(307, 22);
             this.tb_warthog.TabIndex = 22;
             // 
             // btn_warthog_path
             // 
-            this.btn_warthog_path.Location = new System.Drawing.Point(354, 165);
+            this.btn_warthog_path.Location = new System.Drawing.Point(386, 165);
             this.btn_warthog_path.Name = "btn_warthog_path";
             this.btn_warthog_path.Size = new System.Drawing.Size(111, 23);
             this.btn_warthog_path.TabIndex = 21;
@@ -362,7 +350,7 @@ namespace Elite_Add_On_Helper
             // 
             // btn_edlaunch
             // 
-            this.btn_edlaunch.Location = new System.Drawing.Point(353, 218);
+            this.btn_edlaunch.Location = new System.Drawing.Point(385, 218);
             this.btn_edlaunch.Name = "btn_edlaunch";
             this.btn_edlaunch.Size = new System.Drawing.Size(111, 23);
             this.btn_edlaunch.TabIndex = 29;
@@ -372,27 +360,27 @@ namespace Elite_Add_On_Helper
             // 
             // tb_edlaunch_path
             // 
-            this.tb_edlaunch_path.Location = new System.Drawing.Point(470, 219);
+            this.tb_edlaunch_path.Location = new System.Drawing.Point(511, 219);
             this.tb_edlaunch_path.Name = "tb_edlaunch_path";
             this.tb_edlaunch_path.Size = new System.Drawing.Size(307, 22);
             this.tb_edlaunch_path.TabIndex = 30;
             // 
-            // button1
+            // btn_launch_nonvr
             // 
-            this.button1.Location = new System.Drawing.Point(837, 367);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 33);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "Launch";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.btn_launch_nonvr.Location = new System.Drawing.Point(804, 262);
+            this.btn_launch_nonvr.Name = "btn_launch_nonvr";
+            this.btn_launch_nonvr.Size = new System.Drawing.Size(95, 33);
+            this.btn_launch_nonvr.TabIndex = 31;
+            this.btn_launch_nonvr.Text = "Launch";
+            this.btn_launch_nonvr.UseVisualStyleBackColor = true;
+            this.btn_launch_nonvr.Click += new System.EventHandler(this.Button1_Click);
             // 
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 586);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 408);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(948, 26);
             this.statusStrip1.TabIndex = 32;
@@ -406,14 +394,14 @@ namespace Elite_Add_On_Helper
             // 
             // tb_warthogscriptpath
             // 
-            this.tb_warthogscriptpath.Location = new System.Drawing.Point(471, 191);
+            this.tb_warthogscriptpath.Location = new System.Drawing.Point(512, 191);
             this.tb_warthogscriptpath.Name = "tb_warthogscriptpath";
             this.tb_warthogscriptpath.Size = new System.Drawing.Size(307, 22);
             this.tb_warthogscriptpath.TabIndex = 35;
             // 
             // btn_warthogscriptpath
             // 
-            this.btn_warthogscriptpath.Location = new System.Drawing.Point(354, 191);
+            this.btn_warthogscriptpath.Location = new System.Drawing.Point(386, 191);
             this.btn_warthogscriptpath.Name = "btn_warthogscriptpath";
             this.btn_warthogscriptpath.Size = new System.Drawing.Size(111, 23);
             this.btn_warthogscriptpath.TabIndex = 34;
@@ -443,10 +431,11 @@ namespace Elite_Add_On_Helper
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(0, 415);
+            this.progressBar1.Location = new System.Drawing.Point(0, 363);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(948, 23);
             this.progressBar1.TabIndex = 37;
+            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // tabControl1
             // 
@@ -463,6 +452,7 @@ namespace Elite_Add_On_Helper
             this.nonvr_profile.Controls.Add(this.label2);
             this.nonvr_profile.Controls.Add(this.cb_edengineer);
             this.nonvr_profile.Controls.Add(this.btn_autodetect);
+            this.nonvr_profile.Controls.Add(this.btn_launch_nonvr);
             this.nonvr_profile.Controls.Add(this.tb_warthogscriptpath);
             this.nonvr_profile.Controls.Add(this.btn_install_edomhl);
             this.nonvr_profile.Controls.Add(this.btn_install_EDDiscovery);
@@ -515,19 +505,16 @@ namespace Elite_Add_On_Helper
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(948, 612);
+            this.ClientSize = new System.Drawing.Size(948, 434);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Elite AddOn Helper";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -541,8 +528,6 @@ namespace Elite_Add_On_Helper
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox cb_edengineer;
         private System.Windows.Forms.CheckBox cb_EDMarketConnector;
@@ -574,7 +559,7 @@ namespace Elite_Add_On_Helper
         private System.Windows.Forms.CheckBox cb_edlaunch;
         private System.Windows.Forms.Button btn_edlaunch;
         private System.Windows.Forms.TextBox tb_edlaunch_path;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_launch_nonvr;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.TextBox tb_warthogscriptpath;

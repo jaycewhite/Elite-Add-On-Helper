@@ -560,6 +560,11 @@ namespace Elite_Add_On_Helper
         {
 
         }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
