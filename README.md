@@ -8,8 +8,11 @@ Dont forget to save preferences with the File - Save Prefs option!
 
 To DO:
 *Increase the amount of addons supported
+
 *Add support for websites (Miner Tools, Spansh, Inara etc)
+
 *Add a VR profile to enable launching different apps when in VR
+
 
 
 ![WhatsApp Image 2022-11-22 at 17 22 36](https://user-images.githubusercontent.com/5197831/203381505-6a890dd2-f493-43f1-8fc2-581bba8547fc.jpg)
