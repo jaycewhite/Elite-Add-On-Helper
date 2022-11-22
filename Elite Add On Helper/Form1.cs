@@ -394,6 +394,7 @@ namespace Elite_Add_On_Helper
             {
                 // found it!
                 tb_edmc.Text = pathtocheck;
+                tb_edmc.Refresh();
                 cb_EDMarketConnector.Checked = true;
             }
             else
@@ -403,22 +404,23 @@ namespace Elite_Add_On_Helper
             }
             System.Threading.Thread.Sleep(2000);
             Updatestatus("This may take a while.. Searching for Ed Engineer");
-
+            // lets get the users appdata/local folder...
              string Foldertosearch = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\apps";
+            //now we need an array to hold the search result (Edengineer leases stuff behind when it updates resulting in mulitple copies)
             string[] result;
-           // Console.WriteLine(Foldertosearch);
-           result = Directory.GetFiles(Foldertosearch, "EDEngineer.exe", SearchOption.AllDirectories);
-           result.ToList().ForEach(i => Console.WriteLine(i.ToString()));  //spit it out to the console for debugging
+            // now lets search app data for EdEngineer..           
+            result = Directory.GetFiles(Foldertosearch, "EDEngineer.exe", SearchOption.AllDirectories);
+            result.ToList().ForEach(i => Console.WriteLine(i.ToString()));  //spit it out to the console for debugging
             //ok so we have a list of possible candidates, lets get the last one..
 
             if (File.Exists(result.Last()))
             {
                 // found it!
-                string edeng = result.Last();
-                edeng = edeng.Replace(@"\EDEngineer.exe", "");
-                tb_edengineer.Text = edeng;
-                tb_edengineer.Refresh();
-                cb_edengineer.Checked = true;
+                string edeng = result.Last();                       //get the last (usually most recent, meh) version of the file.
+                edeng = edeng.Replace(@"\EDEngineer.exe", "");      //take of the exe name so we jjust have the path
+                tb_edengineer.Text = edeng;                         //update the textbox
+                tb_edengineer.Refresh();                            // refresh the textbox
+                cb_edengineer.Checked = true;                       // enable the app by checking the checkbox
             }
             else
             {
@@ -438,6 +440,7 @@ namespace Elite_Add_On_Helper
             {
                 // found it!
                 tb_voiceattack.Text = pathtocheck;
+                tb_voiceattack.Refresh();
                 cb_voiceattack.Checked = true;
             }
             else
@@ -454,6 +457,7 @@ namespace Elite_Add_On_Helper
             {
                 // found it!
                 tb_eddisco.Text = pathtocheck;
+                tb_eddisco.Refresh();   
                 cb_EDDiscovery.Checked = true;
             }
             else
@@ -473,6 +477,7 @@ namespace Elite_Add_On_Helper
             {
                 // found it!
                 tb_edomhl.Text = pathtocheck;
+                tb_edomhl.Refresh();
                 cb_edomhl.Checked = true;
             }
             else
@@ -489,6 +494,7 @@ namespace Elite_Add_On_Helper
             {
                 // found it!
                 tb_warthog.Text = pathtocheck;
+                tb_warthog.Refresh();
                 cb_warthog.Checked = true;
             }
             else
@@ -506,6 +512,7 @@ namespace Elite_Add_On_Helper
             {
                 // found it!
                 tb_edlaunch_path.Text = pathtocheck;
+                tb_edlaunch_path.Refresh();
                 cb_edlaunch.Checked = true;
             }
             else
