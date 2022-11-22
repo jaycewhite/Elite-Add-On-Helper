@@ -7,11 +7,11 @@ Autodetects looks for apps in their default locations, if you have change the in
 Dont forget to save preferences with the File - Save Prefs option!
 
 To DO:
- Markup : *Increase the amount of addons supported
+ Increase the amount of addons supported
 
- Markup : *Add support for websites (Miner Tools, Spansh, Inara etc)
+ Add support for websites (Miner Tools, Spansh, Inara etc)
 
- Markup : *Add a VR profile to enable launching different apps when in VR
+ Add a VR profile to enable launching different apps when in VR
 
 
 
