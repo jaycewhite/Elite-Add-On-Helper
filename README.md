@@ -13,6 +13,7 @@ To Do:
 * Add support for websites (Miner Tools, Spansh, Inara etc)
 
 * Add a VR profile to enable launching different apps when in VR
+* Close all apps / webpages after exiting Elite
 
 
 
