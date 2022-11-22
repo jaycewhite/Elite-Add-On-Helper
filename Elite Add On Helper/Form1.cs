@@ -1,14 +1,19 @@
-﻿using Elite_Add_On_Helper.Properties;
+﻿//using Elite_Add_On_Helper.Properties;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Management;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Text;
+//using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
+//using System.Xml.Linq;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Text;
 
 namespace Elite_Add_On_Helper
 {
@@ -23,8 +28,9 @@ namespace Elite_Add_On_Helper
             Application.DoEvents();
             Load_prefs();
         }
-
-        private void Load_prefs()
+        
+        //load our preferences..
+        public void Load_prefs()
         {
             // load all the textboxes with values from settings file
             tb_edengineer.Text = Properties.Settings.Default["edengineer_path"].ToString();
@@ -43,11 +49,20 @@ namespace Elite_Add_On_Helper
             cb_warthog.Checked = (bool)Properties.Settings.Default["warthoc_cb"];
             cb_edlaunch.Checked = (bool)Properties.Settings.Default["edlaunch_cb"];
             cb_warthogscriptdir.Checked = (bool)Properties.Settings.Default["warthogscriptdir_cb"];
+
+
+           
+
         }
 
+        // test region
 
+
+        //end test region
 
         // My Functions
+        #region functions
+
         void DownloadFileAndExecute(string link)
         {
             WebClient wc = new WebClient();
@@ -75,6 +90,7 @@ namespace Elite_Add_On_Helper
             }
             else { return null; }
         }
+        #endregion
         // form actions
         // menu actions
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -102,6 +118,7 @@ namespace Elite_Add_On_Helper
             Properties.Settings.Default.Save(); // Saves settings in application configuration file
         }
         // button actions
+        #region browse for paths
         private void Btn_edengineer_path_Click(object sender, EventArgs e)
         {
             string mypath = Folderpath();
@@ -172,6 +189,7 @@ namespace Elite_Add_On_Helper
                 tb_edlaunch_path.Text = mypath;
             }
         }
+        #endregion
         // launch the apps!
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -322,11 +340,26 @@ namespace Elite_Add_On_Helper
             Updatestatus("Ready");
             // for ref how to open a webpage in default browser
             //Process.Start("https://www.google.com/");
-            //Console.ReadLine();
+            ;
         }
+
         //try to detect paths for the applications
+        // TODO get path and exe names to make launching a simple loop operation.
         private void Btn_autodetect_Click(object sender, EventArgs e)
         {
+            List<String> Driveletter = new List<string>();                                  //who has more than 10 local drives???
+            DriveInfo[] allDrives = DriveInfo.GetDrives();
+            foreach (DriveInfo d in allDrives)
+            {
+                if (d.IsReady && d.DriveType == DriveType.Fixed)
+                {
+                    // Store Drives in list..
+                    // Drives;
+
+                    Driveletter.Add(d.ToString());
+                    
+                }
+            }
             string pathtocheck;
             Updatestatus("This may take a while.. Searching for EDMC");
             // lets check the default path
@@ -336,50 +369,71 @@ namespace Elite_Add_On_Helper
             {
                 // found it!
                 tb_edmc.Text = pathtocheck;
+                tb_edmc.Refresh();
                 cb_EDMarketConnector.Checked = true;
             }
             else
             {
                 Updatestatus("EDMC Not found");
-                System.Threading.Thread.Sleep(2000);
+                
             }
-            System.Threading.Thread.Sleep(2000);
+            
             Updatestatus("This may take a while.. Searching for Ed Engineer");
+            // lets get the users appdata/local folder...
+             string Foldertosearch = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\apps";
+            //now we need an array to hold the search result (Edengineer leases stuff behind when it updates resulting in mulitple copies)
+            string[] result;
+            // now lets search app data for EdEngineer..           
+            result = Directory.GetFiles(Foldertosearch, "EDEngineer.exe", SearchOption.AllDirectories);
+            
+            //ok so we have a list of possible candidates, lets get the last one..
 
-            pathtocheck = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +@"\Microsoft\Windows\Start Menu\Programs\Max";
-
-            if (Directory.Exists(pathtocheck))
+            if (File.Exists(result.Last()))
             {
                 // found it!
-                tb_edmc.Text = pathtocheck;
-                cb_EDMarketConnector.Checked = true;
+                string edeng = result.Last();                       //get the last (usually most recent, meh) version of the file.
+                edeng = edeng.Replace(@"\EDEngineer.exe", "");      //take of the exe name so we jjust have the path
+                tb_edengineer.Text = edeng;                         //update the textbox
+                tb_edengineer.Refresh();                            // refresh the textbox
+                cb_edengineer.Checked = true;                       // enable the app by checking the checkbox
             }
             else
             {
                 Updatestatus("Ed Engineer Not found");
-                System.Threading.Thread.Sleep(2000);
             }
-            System.Threading.Thread.Sleep(2000);
-
-
-
             Updatestatus("This may take a while.. Searching for Voice Attack");
 
             // lets check the default path
-            // 
-            pathtocheck = @"C:\Program Files (x86)\Steam\steamapps\common\VoiceAttack";
+            // lets also search well known locations on all local fixed drives
+            pathtocheck = @"C:\Program Files (x86)\Steam\steamapps\commonVoiceAttack";
             if (Directory.Exists(pathtocheck))
             {
                 // found it!
                 tb_voiceattack.Text = pathtocheck;
+                tb_voiceattack.Refresh();
                 cb_voiceattack.Checked = true;
             }
             else
             {
-                Updatestatus("Voice Attack Not found");
+                foreach (string d in Driveletter)
+                {
+                    pathtocheck = d + @"SteamLibrary\steamapps\common\VoiceAttack";
+                    
+                    if (Directory.Exists(pathtocheck))
+                    {
+                        // found it!
+                        tb_voiceattack.Text = pathtocheck;
+                        tb_voiceattack.Refresh();
+                        cb_voiceattack.Checked = true;
+                    }
+                    else
+                    {
+                        Updatestatus("Voice Attack Not found");
 
+                    }
+                }
             }
-            System.Threading.Thread.Sleep(2000);
+            
             Updatestatus("This may take a while.. Searching for ED Discovery");
             // lets check the default path
             // 
@@ -388,6 +442,7 @@ namespace Elite_Add_On_Helper
             {
                 // found it!
                 tb_eddisco.Text = pathtocheck;
+                tb_eddisco.Refresh();   
                 cb_EDDiscovery.Checked = true;
             }
             else
@@ -395,7 +450,7 @@ namespace Elite_Add_On_Helper
                 Updatestatus("ED Discovery Not found");
 
             }
-            System.Threading.Thread.Sleep(2000);
+            
             Updatestatus("This may take a while.. Searching for ED Odyysey Materials Helper");
 
             // lets check the default path
@@ -407,13 +462,14 @@ namespace Elite_Add_On_Helper
             {
                 // found it!
                 tb_edomhl.Text = pathtocheck;
+                tb_edomhl.Refresh();
                 cb_edomhl.Checked = true;
             }
             else
             {
                 Updatestatus(" ED Odyysey Materials Helper not found");
             }
-            System.Threading.Thread.Sleep(2000);
+            
 
             Updatestatus("This may take a while.. Searching for T.A.R.G.E.T");
             // lets check the default path
@@ -423,33 +479,53 @@ namespace Elite_Add_On_Helper
             {
                 // found it!
                 tb_warthog.Text = pathtocheck;
+                tb_warthog.Refresh();
                 cb_warthog.Checked = true;
             }
             else
             {
                 Updatestatus(" ED Odyysey Materials Helper not found");
             }
-            System.Threading.Thread.Sleep(2000);
+            
 
             Updatestatus("This may take a while.. Searching for Elite Dangerous");
 
             // lets check the default path
             // 
             pathtocheck = @"C:\Program Files (x86)\Steam\steamapps\common\Elite Dangerous\";
+            
             if (Directory.Exists(pathtocheck))
             {
                 // found it!
                 tb_edlaunch_path.Text = pathtocheck;
+                tb_edlaunch_path.Refresh();
                 cb_edlaunch.Checked = true;
             }
             else
+            {
+                foreach (string d in Driveletter)
+                {
+
+
+                    pathtocheck = d + @"SteamLibrary\steamapps\common\Elite Dangerous";
+                   
+                    if (Directory.Exists(pathtocheck))
+                    {
+                        // found it!
+                        tb_edlaunch_path.Text = pathtocheck;
+                        tb_edlaunch_path.Refresh();
+                        cb_edlaunch.Checked = true;
+                    }
+                 }
+            }
+            if (tb_edlaunch_path.Text == null)
             {
                 Updatestatus("Elite launcher not found");
             }
             System.Threading.Thread.Sleep(2000);
             Updatestatus("Ready");
         }
-
+        # region installs
         private void Btn_install_EdEngineer_Click(object sender, EventArgs e)
         {
             Updatestatus("Installing Ed Engineer");
@@ -476,6 +552,18 @@ namespace Elite_Add_On_Helper
             Updatestatus("Installing ED Odyysesy Materials Helper");
             DownloadFileAndExecute("https://github.com/jixxed/ed-odyssey-materials-helper/releases/download/1.100/Elite.Dangerous.Odyssey.Materials.Helper-1.100.msi");
             Updatestatus("Ready");
+        }
+
+        #endregion installs      
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
