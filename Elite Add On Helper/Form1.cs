@@ -57,57 +57,7 @@ namespace Elite_Add_On_Helper
 
         // My Functions
         #region functions
-        private string Findfile(string FILENAME)
-        {
-            const string FOLDER = @"c:\";
-            string[] res;
-            DirectoryInfo info = new DirectoryInfo(FOLDER);
-            try
-            {
-                foreach (DirectoryInfo childInfo in info.GetDirectories())
-                {
-                    Updatestatus(childInfo.FullName);
-                    Console.WriteLine(childInfo.FullName);
-                    try
-                    {
-                        res = Directory.GetFiles(childInfo.FullName, FILENAME, SearchOption.AllDirectories);
-                        Console.WriteLine(res);
-                    }
-                    catch (Exception ex)
-                    {
-                        string errorMsg = string.Format("Exception Folder : {0}, Error : {1}", info.FullName, ex.Message);
-                        Console.WriteLine(errorMsg);
 
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                string errorMsg = string.Format("Exception Folder : {0}, Error : {1}", info.FullName, ex.Message);
-                Console.WriteLine(errorMsg);
-                
-            }
-
-            System.Threading.Thread.Sleep(2000);
-
-            System.Threading.Thread.Sleep(2000);
-
-
-            var files = new List<string>();
-
-            foreach (DriveInfo d in DriveInfo.GetDrives().Where(x => x.IsReady == true))
-            {
-                try
-                {
-                    Updatestatus("Searching " + d.RootDirectory.FullName);
-                    System.Threading.Thread.Sleep(2000);
-                    files.AddRange(Directory.GetFiles(d.RootDirectory.FullName, FILENAME, SearchOption.AllDirectories));
-                }
-                catch { }
-            }
-            if (files.Count == 0) { return "Not Found"; } else {
-                return files.First(); }
-        }
         void DownloadFileAndExecute(string link)
         {
             WebClient wc = new WebClient();
@@ -529,7 +479,7 @@ namespace Elite_Add_On_Helper
             System.Threading.Thread.Sleep(2000);
             Updatestatus("Ready");
         }
- # region installs
+        # region installs
         private void Btn_install_EdEngineer_Click(object sender, EventArgs e)
         {
             Updatestatus("Installing Ed Engineer");
@@ -558,7 +508,7 @@ namespace Elite_Add_On_Helper
             Updatestatus("Ready");
         }
 
-#endregion installs      
+        #endregion installs      
     }
 }
 
