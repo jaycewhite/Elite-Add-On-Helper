@@ -92,8 +92,8 @@ namespace Elite_Add_On_Helper
             // 
             // cb_edengineer
             // 
-            this.cb_edengineer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.cb_edengineer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cb_edengineer.AutoSize = true;
             this.cb_edengineer.Location = new System.Drawing.Point(6, 35);
@@ -212,6 +212,7 @@ namespace Elite_Add_On_Helper
             this.tb_edengineer.Name = "tb_edengineer";
             this.tb_edengineer.Size = new System.Drawing.Size(307, 22);
             this.tb_edengineer.TabIndex = 12;
+            this.tb_edengineer.TextChanged += new System.EventHandler(this.tb_edengineer_TextChanged);
             // 
             // tb_edmc
             // 
@@ -436,7 +437,6 @@ namespace Elite_Add_On_Helper
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(948, 23);
             this.progressBar1.TabIndex = 37;
-
             // 
             // tabControl1
             // 

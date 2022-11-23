@@ -8,7 +8,7 @@ using System.Threading;
 using System.IO;
 using System.Linq;
 using System.Net;
-//using System.Text;
+//using System.Text; 
 //using System.Threading.Tasks;
 using System.Windows.Forms;
 //using System.Xml.Linq;
@@ -23,13 +23,14 @@ namespace Elite_Add_On_Helper
 
     public partial class Form1 : Form
     {
-
+        
 
         public Form1()
         {
             InitializeComponent();
             Application.DoEvents();
             Load_prefs();
+            
 
         }
 
@@ -53,10 +54,7 @@ namespace Elite_Add_On_Helper
             cb_warthog.Checked = (bool)Properties.Settings.Default["warthoc_cb"];
             cb_edlaunch.Checked = (bool)Properties.Settings.Default["edlaunch_cb"];
             cb_warthogscriptdir.Checked = (bool)Properties.Settings.Default["warthogscriptdir_cb"];
-
-
-
-
+            
         }
 
         // test region
@@ -617,7 +615,11 @@ namespace Elite_Add_On_Helper
 
         }
 
-
+        private void tb_edengineer_TextChanged(object sender, EventArgs e)
+        {
+            // do we have an object for this field?
+            
+        }
     }
 }
 
