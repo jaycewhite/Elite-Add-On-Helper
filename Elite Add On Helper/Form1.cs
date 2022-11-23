@@ -25,12 +25,16 @@ namespace Elite_Add_On_Helper
 
     public partial class Form1 : Form
     {
+        static string directory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
+        static string settingsFilePath = directory + "/Elite Add On Helper";
 
         public Form1()
         {
             InitializeComponent();
 
+            System.IO.Directory.CreateDirectory(settingsFilePath);
+            Application.DoEvents();
 
             Load_prefs();
 
