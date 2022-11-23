@@ -13,7 +13,7 @@ namespace Elite_Add_On_Helper.Model
     public class AddOn : INotifyPropertyChanged
     {
         /// <summary>
-        /// Add on for if enabled (box checked)
+        /// Bool for if enabled (box checked)
         /// </summary>
         public bool Enabled { get; set; } = false;
 
