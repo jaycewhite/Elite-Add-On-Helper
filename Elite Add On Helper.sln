@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elite Add On Helper", "Elite Add On Helper\Elite Add On Helper.csproj", "{D3C86BCE-CCAE-4721-B802-E7AB6AA91B3B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CDB967D2-3DE5-4984-BC59-C8F64FD0E069}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{389F5123-EDD2-4A23-B810-EA0826F8BF3E}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
