@@ -119,16 +119,27 @@ namespace Elite_Add_On_Helper
             
         }
 
-
+        /// <summary>
+        /// Creates all the controls programmatically from the addon class model you provide.
+        /// </summary>
+        /// <param name="addOn"></param>
         private void CreateControls(AddOn addOn)
         {
+            //Sets the y position of the controls based on how many rows (addons) there are
             var yPosition = ((currentControlRow) * 22) + 150;
 
+            //Create checkbox
             CheckBox checkBox = new CheckBox();
+            //Set the text to the friendly (human readable) addon name
             checkBox.Text = addOn.FriendlyName;
+            //Autosize on
             checkBox.AutoSize = true;
+            //Data binding, super useful. If the box is checked, it updates the model, if you update the model in code, the box changes too!
+            //this is basically saying "The box being checked on screen is linked to this specific addon object, and more specifically the enabled property"
             checkBox.DataBindings.Add("Checked", addOn, "Enabled");
+            //Set the location on screen, this can be a bit trial and error
             checkBox.Location = new System.Drawing.Point(15, yPosition);
+            //Add the checkbox to the controls for this form1 form
             Controls.Add(checkBox);
 
             Button button = new Button();
@@ -217,6 +228,11 @@ namespace Elite_Add_On_Helper
             File.WriteAllText("AddOns.json", Json);
         }
 
+        /// <remarks>
+        /// this would be better on the addon class, but you need access to updatestatus() etc.
+        /// thats not impossible, but for now its here because I didn't have time lol
+        /// </remarks>
+        /// <param name="addOn"></param>
         private void LaunchAddon(AddOn addOn)
         {
             var path = $"{addOn.ProgramDirectory}/{addOn.ExecutableName}";
