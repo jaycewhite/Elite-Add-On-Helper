@@ -15,6 +15,8 @@ namespace Elite_Add_On_Helper
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //lets set up a settings folder in appdata
+
             Application.Run(new Form1());
 
         }

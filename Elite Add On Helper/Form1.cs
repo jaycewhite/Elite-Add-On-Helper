@@ -17,20 +17,23 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.ComponentModel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using System.Xml.XPath;
+using System.Xml;
 
 namespace Elite_Add_On_Helper
 {
 
     public partial class Form1 : Form
     {
-        
+
 
         public Form1()
         {
             InitializeComponent();
-            Application.DoEvents();
+
+
             Load_prefs();
-            
+
 
         }
 
@@ -54,11 +57,71 @@ namespace Elite_Add_On_Helper
             cb_warthog.Checked = (bool)Properties.Settings.Default["warthoc_cb"];
             cb_edlaunch.Checked = (bool)Properties.Settings.Default["edlaunch_cb"];
             cb_warthogscriptdir.Checked = (bool)Properties.Settings.Default["warthogscriptdir_cb"];
-            
+
         }
 
         // test region
-
+        #region Read Data From XML
+        /// <summary>
+        /// Reads the data of specified node provided in the parameter
+        /// </summary>
+        /// <param name="pstrValueToRead">Node to be read</param>
+        /// <returns>string containing the value</returns>
+        private static string ReadValueFromXML(string pstrValueToRead)
+        {
+            try
+            {
+                //settingsFilePath is a string variable storing the path of the settings file 
+                XPathDocument doc = new XPathDocument(settingsFilePath);
+                XPathNavigator nav = doc.CreateNavigator();
+                // Compile a standard XPath expression
+                XPathExpression expr;
+                expr = nav.Compile(@"/settings/" + pstrValueToRead);
+                XPathNodeIterator iterator = nav.Select(expr);
+                // Iterate on the node set
+                while (iterator.MoveNext())
+                {
+                    return iterator.Current.Value;
+                }
+                return string.Empty;
+            }
+            catch
+            {
+                //do some error logging here. Leaving for you to do 
+                return string.Empty;
+            }
+        }
+        /// <summary>
+        /// Writes the updated value to XML
+        /// </summary>
+        /// <param name="pstrValueToRead">Node of XML to read</param>
+        /// <param name="pstrValueToWrite">Value to write to that node</param>
+        /// <returns></returns>
+        private static bool WriteValueTOXML(string pstrValueToRead, string pstrValueToWrite)
+        {
+            try
+            {
+                //settingsFilePath is a string variable storing the path of the settings file 
+                XmlTextReader reader = new XmlTextReader(settingsFilePath);
+                XmlDocument doc = new XmlDocument();
+                doc.Load(reader);
+                //we have loaded the XML, so it's time to close the reader.
+                reader.Close();
+                XmlNode oldNode;
+                XmlElement root = doc.DocumentElement;
+                oldNode = root.SelectSingleNode("/settings/" + pstrValueToRead);
+                oldNode.InnerText = pstrValueToWrite;
+                doc.Save(settingsFilePath);
+                return true;
+            }
+            catch
+            {
+                //properly you need to log the exception here. But as this is just an
+                //example, I am not doing that. 
+                return false;
+            }
+        }
+        #endregion
 
         //end test region
 
@@ -618,7 +681,7 @@ namespace Elite_Add_On_Helper
         private void tb_edengineer_TextChanged(object sender, EventArgs e)
         {
             // do we have an object for this field?
-            
+
         }
     }
 }
